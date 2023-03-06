@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+body {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('assets/img/logo.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexBetween {
+    @extend .flexCenter;
+    justify-content: space-between;
+}
+

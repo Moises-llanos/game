@@ -1,0 +1,11 @@
+
+<div class="play flexCenter">
+    <div class="play__content">
+        <app-card 
+            *ngFor="let item of characters" 
+            (onActive)="getTotalCount($event)"
+            [maxActive]="activeElements.length"
+            [dataSrc]="item" 
+            ></app-card>
+    </div>
+</div>
