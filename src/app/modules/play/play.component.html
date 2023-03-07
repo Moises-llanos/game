@@ -1,11 +1,13 @@
-
-<div class="play flexCenter">
-    <div class="play__content">
-        <app-card 
-            #card
-            *ngFor="let item of characters" 
-            (onActive)="getTotalCount($event)"
-            [dataSrc]="item" 
-            ></app-card>
-    </div>
+<app-won *ngIf="isWinner"></app-won>
+<app-loading *ngIf="!characters.length"></app-loading>
+<div class="play flexCenter" *ngIf="characters.length">
+  <div class="play__content">
+    <app-card
+      #card
+      *ngFor="let item of characters"
+      (onActive)="getTotalCount($event)"
+      [dataSrc]="item"
+    ></app-card>
+  </div>
 </div>
+

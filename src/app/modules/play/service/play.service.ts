@@ -1,5 +1,5 @@
 import { Result, DataCharacters } from '../models/play.models';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { map, Observable, Subject } from "rxjs";
 import { Injectable } from "@angular/core";
 
@@ -17,7 +17,11 @@ export class PlayService {
     constructor(private _http: HttpClient){}
 
     getCharacters(): Observable<Result[]>{
-        return this._http.get<DataCharacters>(this.API)
+
+        const params = new HttpParams()
+        .set('page', `${Math.round(Math.random() * 20)}`)
+
+        return this._http.get<DataCharacters>(this.API, {params})
         .pipe(map(({results})=> results))
     }
 }

@@ -1,12 +1,13 @@
 
 
 .card {
-    background-image: url('../../../../assets/img/card__fondo.webp');
+    background-image: url('../../../../assets/img/fondo__card.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid #747474;
+    border: 1px solid #fff;
     background-size: cover;
     border-radius: 10px;
+    transition: 500ms;
     cursor: pointer;
     height: 90px;
     width: 90px;

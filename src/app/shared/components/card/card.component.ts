@@ -11,9 +11,10 @@ import { PlayService } from '../../../modules/play/service/play.service';
 export class CardComponent  {
     @ViewChild('card', {static: true}) card!: ElementRef<HTMLDivElement>;
     @Output() onActive: EventEmitter<number> = new EventEmitter();
+    public audio = new Audio('assets/sonido/click.mp3')
     @Input() dataSrc!: IRamdonCards;
     
-    get totalActive(){
+    private get totalActive(){
         return this.playService.activeIndex.length
     }
 
@@ -31,6 +32,7 @@ export class CardComponent  {
                 this.element.style.backgroundImage = `url(${image})`
                 this.element.classList.add('animate__flipInY')
                 this.onActive.emit(id)
+                this.audio.play();
             }
         }
     }

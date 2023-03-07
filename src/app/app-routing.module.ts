@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'play',
-    loadChildren: ()=> import('./modules/play/play.module').then(m=> m.PlayModule)
+    loadChildren: ()=> import('./modules/play/play.module').then(m=> m.PlayModule),
+    title: 'A jugar...'
   },
   {
     path: '**',
