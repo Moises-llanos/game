@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { IRamdonCards } from '../../../modules/play/models/play.models';
 import { PlayService } from '../../../modules/play/service/play.service';
 
@@ -8,13 +8,14 @@ import { PlayService } from '../../../modules/play/service/play.service';
     styleUrls: ['./card.component.scss']
 })
 
-export class CardComponent implements OnInit {
+export class CardComponent  {
     @ViewChild('card', {static: true}) card!: ElementRef<HTMLDivElement>;
     @Output() onActive: EventEmitter<number> = new EventEmitter();
     @Input() dataSrc!: IRamdonCards;
-    @Input() maxActive: number = 0;
-    private img: string = 'assets/img/card__fondo.webp'
-
+    
+    get totalActive(){
+        return this.playService.activeIndex.length
+    }
 
     constructor(private playService: PlayService){}
 
@@ -23,23 +24,14 @@ export class CardComponent implements OnInit {
         return this.card?.nativeElement
     }
 
-    ngOnInit(): void {
-        this.playService.obsActives
-        .subscribe(res=> {
-            if(res.includes(this.dataSrc.id)){
-                this.element.style.backgroundImage = `url(${this.img})`
-                this.element.classList.remove('animate__flipInX')
-                this.playService.activeIndex = [];
-            }
-        })
-    }
-
     changeImg(){
-        if(this.element && this.dataSrc && this.maxActive < 2){
-            const {id, image} = this.dataSrc;
-            this.element.style.backgroundImage = `url(${image})`
-            this.element.classList.add('animate__flipInY')
-            this.onActive.emit(id)
+        if(!this.element.classList.contains('animate__flipInY')){
+            if(this.element && this.dataSrc && this.totalActive < 2){
+                const {id, image} = this.dataSrc;
+                this.element.style.backgroundImage = `url(${image})`
+                this.element.classList.add('animate__flipInY')
+                this.onActive.emit(id)
+            }
         }
     }
 }

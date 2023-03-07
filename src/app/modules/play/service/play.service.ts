@@ -10,7 +10,7 @@ import { Injectable } from "@angular/core";
 
 export class PlayService {
     public activeIndex: number[] = [];
-    public obsActives: Subject<number[]> = new Subject()
+    public obsActives: Subject<void> = new Subject()
     private API: string = 'https://rickandmortyapi.com/api/character';
 
     
