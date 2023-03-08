@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 export interface DataCharacters {
     info: Info;
     results: Result[];
@@ -32,7 +33,12 @@ export interface Info {
 
 
 export interface IRamdonCards {
-    id: number;
-    image: string
+  image: string;
+  id: number;
+}
+
+export interface ICompareCard {
+  element: ElementRef<HTMLDivElement>,
+  id: number
 }
 

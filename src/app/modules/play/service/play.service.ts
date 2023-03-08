@@ -1,7 +1,8 @@
-import { Result, DataCharacters } from '../models/play.models';
+import { Result, DataCharacters, ICompareCard } from '../models/play.models';
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { map, Observable, Subject } from "rxjs";
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { map, Observable } from "rxjs";
+
 
 
 @Injectable({
@@ -9,18 +10,31 @@ import { Injectable } from "@angular/core";
 })
 
 export class PlayService {
-    public activeIndex: number[] = [];
-    public obsActives: Subject<void> = new Subject()
+    public cardsRef: ICompareCard[] = [];
     private API: string = 'https://rickandmortyapi.com/api/character';
+    private totalPares: number = 0;
 
+    get pares(){
+        return this.totalPares;
+    }
+    set pares(value: number){
+        this.totalPares = value
+    }
     
+    get listCardsRef(){
+        return this.cardsRef
+    }
+
+    set listCardsRef(arr: ICompareCard[]){
+        this.cardsRef = arr
+    }
+
     constructor(private _http: HttpClient){}
 
     getCharacters(): Observable<Result[]>{
-
-        const params = new HttpParams()
-        .set('page', `${Math.round(Math.random() * 20)}`)
-
+        let idPages = Math.round(Math.random() * 20);
+        console.log(idPages);
+        const params = new HttpParams().set('page', `${idPages ||= 2 }`)
         return this._http.get<DataCharacters>(this.API, {params})
         .pipe(map(({results})=> results))
     }

@@ -13,8 +13,8 @@
   $colors: (#d13447, #ffbf00, #263672, #fff);
   
   @for $i from 0 through 200 {
-    $w: random(30);
-    $l: random(100);
+    $w: random(35);
+    $l: random(120);
     .confetti-#{$i} {
       width: #{$w}px;
       height: #{$w*0.4}px;
