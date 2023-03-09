@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxEmergenteModule } from 'ngx-emergente';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +12,6 @@ import { NgxEmergenteModule } from 'ngx-emergente';
         AppRoutingModule, 
         HttpClientModule, 
         BrowserModule,
-        NgxEmergenteModule
       ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,7 +33,6 @@ export class PlayService {
 
     getCharacters(): Observable<Result[]>{
         let idPages = Math.round(Math.random() * 20);
-        console.log(idPages);
         const params = new HttpParams().set('page', `${idPages ||= 2 }`)
         return this._http.get<DataCharacters>(this.API, {params})
         .pipe(map(({results})=> results))

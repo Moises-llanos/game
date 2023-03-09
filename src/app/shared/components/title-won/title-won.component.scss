@@ -1,0 +1,41 @@
+
+
+.title {
+   position: fixed;
+   width: 100vw;
+   height: 100vh;
+   
+   h1 {
+       backdrop-filter: blur(10px);
+        background-color: #fff0;
+        letter-spacing: -5px;
+        border-radius: 10px;
+        font-size: 75px;
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 768px){
+    .title {
+        h1 {
+            font-size: 60px;
+        }
+    }
+}
+
+@media (max-width: 400px){
+    .title {
+        h1 {
+            font-size: 50px;
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .title {
+        h1 {
+            font-size: 40px;
+        }
+    }
+}

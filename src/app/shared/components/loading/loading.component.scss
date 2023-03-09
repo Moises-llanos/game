@@ -5,7 +5,7 @@
     --c: no-repeat linear-gradient(#000 0 0);
     mask: var(--c),var(--c),var(--c);
     mask-size: 20% 50%;
-    background: conic-gradient(#FBB833 25%,#FFFF00 0 75%,#9c5555 0) 0%/200% 100%;
+    background: conic-gradient(#FFE2B8 25%,#FFFF00 0 75%,#19A9CC 0) 0%/200% 100%;
     animation: 
       back 2s infinite steps(1),
       load 1s infinite linear;

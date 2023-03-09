@@ -1,14 +1,20 @@
 <app-won *ngIf="totalPares === 10"></app-won>
 <app-loading *ngIf="!characters.length"></app-loading>
+<app-title-won *ngIf="totalPares === 10" (click)="won()"></app-title-won>
+
 <div class="play flexCenter" *ngIf="characters.length">
-  <div class="play__content">
-    <app-card
-      *ngFor="let item of characters"
-      [dataSrc]="item"
-      (onwom)="won()"
-      #card
-    ></app-card>
+  <div class="play__center">
+    <div class="play__center-content">
+      <div class="banner animate__animated animate__fadeIn">
+        <img src="assets/img/icon.png" *ngFor="let item of [1, 1, 1, 1, 1]" />
+      </div>
+      <div class="play__content">
+        <app-card
+          *ngFor="let item of characters"
+          [dataSrc]="item"
+          #card
+        ></app-card>
+      </div>
+    </div>
   </div>
 </div>
-
-{{totalPares}}

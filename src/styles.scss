@@ -8,8 +8,17 @@ body {
     box-sizing: border-box;
     background-image: url('assets/img/logo.jpg');
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: cover;
     overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+  font-family: "Schoolbell", cursive;
+  color: #02b1c8;
+  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
+  line-height: 1;
 }
 
 .flexCenter {

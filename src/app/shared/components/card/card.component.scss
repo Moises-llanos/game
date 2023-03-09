@@ -1,8 +1,7 @@
-
-
 .card {
     background-image: url('../../../../assets/img/fondo__card.jpg');
     background-repeat: no-repeat;
+    transform-style: preserve-3d;
     background-position: center;
     border: 1px solid #fff;
     background-size: cover;
@@ -11,4 +10,19 @@
     cursor: pointer;
     height: 90px;
     width: 90px;
+}
+
+
+@media (max-width: 768px){
+    .card {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 320px){
+    .card {
+        width: 50px;
+        height: 50px;
+    }
 }

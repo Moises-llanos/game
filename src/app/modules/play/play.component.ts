@@ -1,8 +1,6 @@
-import { MESSAGE__WON, MESSAGE__WINNER } from '../../core/constants/constants';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IRamdonCards, Result } from './models/play.models';
 import { PlayService } from './service/play.service';
-import { NgxEmergenteService } from 'ngx-emergente';
 import { delay, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -21,7 +19,6 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   constructor(
     private playService: PlayService,
-    private ngxAlert: NgxEmergenteService
   ) {}
 
   ngOnInit(): void {
@@ -32,17 +29,6 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.getCharactersImg(2000);
   }
 
-  setMessageWinner() {
-    return this.ngxAlert.open({
-      icon: 'fas fa-flag-checkered',
-      messageBtnConfirm: 'Siguiente',
-      colorBtnConfirm: '#FF9800',
-      subtitle: MESSAGE__WINNER,
-      title: MESSAGE__WON,
-      type: 'Actualizar',
-      singleBtn: true,
-    });
-  }
 
   getCharactersImg(maxDelay?: number) {
     this.playService
@@ -63,8 +49,7 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.characters = [...data.concat(data)].sort(() => Math.random() - 0.5);
   }
 
-  async won(){
-    await this.setMessageWinner();
+  won(){
     this.getCharactersImg();
   }
 
