@@ -8,22 +8,22 @@ import { IRamdonCards } from '../../../modules/play/models/play.models';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
+
 export class CardComponent {
   @ViewChild('card', { static: true }) card!: ElementRef<HTMLDivElement>;
   @Output() onwom: EventEmitter<void> = new EventEmitter();
   @Input() dataSrc: IRamdonCards = { id: 0, image: '' };
 
+  get element() {
+    return this.card.nativeElement;
+  }
+
   private sonido = new Audio('assets/sonido/click.mp3');
-  private img: string = 'assets/img/fondo__card.jpg';
   private get totalCards() {
     return this.playService.listCardsRef.length;
   }
 
   constructor(private playService: PlayService) {}
-
-  get element() {
-    return this.card.nativeElement;
-  }
 
   changeImg() {
     const hasFlY = this.element.classList.contains(ANIMATE__FLIPINY);
@@ -54,14 +54,15 @@ export class CardComponent {
 
   removeClass() {
     setTimeout(() => {
+      const img: string = 'assets/img/fondo__card.jpg';
       this.playService.listCardsRef.forEach(
         ({ element: { nativeElement } }) => {
           nativeElement.classList.add(ANIMATE__FLIPINX);
-          nativeElement.style.backgroundImage = `url(${this.img})`;
+          nativeElement.style.backgroundImage = `url(${img})`;
           nativeElement.classList.remove(ANIMATE__FLIPINY);
         }
       );
       this.playService.listCardsRef = [];
-    }, 500);
+    }, 900);
   }
 }

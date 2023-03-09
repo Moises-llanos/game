@@ -3,6 +3,7 @@ import { IRamdonCards, Result } from './models/play.models';
 import { PlayService } from './service/play.service';
 import { delay, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { MESSAGE__WINNER } from '../../core/constants/constants';
 
 @Component({
   selector: 'app-play',
@@ -11,15 +12,18 @@ import { Subject } from 'rxjs';
 })
 export class PlayComponent implements OnInit, OnDestroy {
   public characters: IRamdonCards[] = [];
+  public totalVidas = new Array(5);
   private obsDestroy: Subject<void> = new Subject();
 
-  get totalPares(){
-    return this.playService.pares
+  get isComplete(){
+    return this.playService.pares === 10
   }
 
-  constructor(
-    private playService: PlayService,
-  ) {}
+  get title(){
+    return !this.isComplete ? 'Rick And Morty' : MESSAGE__WINNER
+  }
+
+  constructor(private playService: PlayService) {}
 
   ngOnInit(): void {
     this.executeMethod();
@@ -29,14 +33,12 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.getCharactersImg(2000);
   }
 
-
   getCharactersImg(maxDelay?: number) {
     this.playService
       .getCharacters()
       .pipe(delay(maxDelay ?? 0), takeUntil(this.obsDestroy))
       .subscribe(this.setDataCharacters.bind(this));
   }
-
 
   setDataCharacters(result: Result[]) {
     this.playService.pares = 0;
