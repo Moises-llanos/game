@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./loading.component.scss']
 })
 
-export class LoadingComponent {}
+export class LoadingComponent {
+    public options = {
+        path: 'assets/lottie/loading.json'
+    }
+}

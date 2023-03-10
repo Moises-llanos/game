@@ -14,12 +14,19 @@ body {
     width: 100vw;
 }
 
-h1 {
+h1,
+h2, 
+h3, 
+h4,
+h5,
+h6 {
   font-family: "Schoolbell", cursive;
   color: #02b1c8;
   text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
   line-height: 1;
 }
+
+
 
 .flexCenter {
     display: flex;

@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CardComponent } from './components/card/card.component';
+import { TitleWonComponent } from './components/title-won/title-won.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CardComponent } from './components/card/card.component';
 import { WonComponent } from './components/won/won.component';
 import { CommonModule } from '@angular/common';
-import { TitleWonComponent } from './components/title-won/title-won.component';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LottieModule } from 'ngx-lottie';
+
+
 
 
 @NgModule({
@@ -17,9 +21,12 @@ import { TitleWonComponent } from './components/title-won/title-won.component';
         TitleWonComponent,
         LoadingComponent,
         CardComponent,
-        WonComponent
+        WonComponent,
     ],
-    imports: [CommonModule]
+    imports: [
+        CommonModule,
+        LottieModule
+    ]
 })
 
 export class SharedModule {}
