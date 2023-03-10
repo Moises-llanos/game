@@ -1,5 +1,6 @@
 $colors: (#d13447, #ffbf00, #263672, #fff);
 
+
 #loading {
     user-select: none;
     z-index: 90;
@@ -10,10 +11,11 @@ $colors: (#d13447, #ffbf00, #263672, #fff);
     transition: 500ms all ease-in-out;
 
 
-    [class|="confetti"] {
+    .conf {
       position: absolute;
       z-index: 101;
     }
+    
 
     .content-loading {
       z-index: 100;
