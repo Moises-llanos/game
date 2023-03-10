@@ -12,15 +12,20 @@ import { Subject } from 'rxjs';
 })
 export class PlayComponent implements OnInit, OnDestroy {
   public characters: IRamdonCards[] = [];
-  public totalVidas = new Array(5);
+  public canLoad: boolean = false;
+
   private obsDestroy: Subject<void> = new Subject();
 
-  get isComplete(){
-    return this.playService.pares === 10
+  get totalVidas(){
+    return this.playService.totalVidas;
   }
 
-  get title(){
-    return 'Rick And Morty' 
+  get isComplete(){
+    return this.playService.pares === 10;
+  }
+
+  get intentos(){
+    return this.playService.totalMovimientos
   }
 
   constructor(private playService: PlayService) {}
@@ -30,13 +35,13 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   executeMethod() {
-    this.getCharactersImg(2000);
+    this.getCharactersImg();
   }
 
-  getCharactersImg(maxDelay?: number) {
+  getCharactersImg() {
     this.playService
       .getCharacters()
-      .pipe(delay(maxDelay ?? 0), takeUntil(this.obsDestroy))
+      .pipe(delay(2000), takeUntil(this.obsDestroy))
       .subscribe(this.setDataCharacters.bind(this));
   }
 
@@ -49,9 +54,11 @@ export class PlayComponent implements OnInit, OnDestroy {
       .splice(0, 10);
       
     this.characters = [...data.concat(data)].sort(() => Math.random() - 0.5);
+    setTimeout(()=> this.canLoad = true, 1000)
   }
 
   won(){
+    this.canLoad = false;
     this.getCharactersImg();
   }
 

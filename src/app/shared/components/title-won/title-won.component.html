@@ -1,6 +1,11 @@
 
-<div class="title flexCenter" style="align-items: flex-start;">
-    <h1 class="animate__animated animate__lightSpeedInRight">
-        Felicidades Has Ganado Este Reto...
-    </h1>
+<div id="loading">
+    <div [class]="'confetti-' + index" *ngFor="let item of wons; index as index"></div>
+    <div class="content-loading">
+        <ng-lottie [options]="options" height="200px" width="250px"></ng-lottie>
+        <div class="title">
+            <h2>¡Completaste el nivel!</h2>
+        </div>
+    </div>
 </div>
+  

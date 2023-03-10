@@ -7,4 +7,9 @@ import { Component } from "@angular/core";
     styleUrls: ['./title-won.component.scss']
 })
 
-export class TitleWonComponent {}
+export class TitleWonComponent {
+    public wons = new Array(199)
+    public options = {
+        path: 'assets/lottie/loader.json'
+    }
+}

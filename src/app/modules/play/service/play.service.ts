@@ -13,7 +13,9 @@ export class PlayService {
     public cardsRef: ICompareCard[] = [];
     private API: string = 'https://rickandmortyapi.com/api/character';
     private totalPares: number = 0;
-
+    public totalMovimientos: number = 0;
+    public totalVidas: string[] = [];
+    
     get pares(){
         return this.totalPares;
     }
@@ -29,7 +31,13 @@ export class PlayService {
         this.cardsRef = arr
     }
 
-    constructor(private _http: HttpClient){}
+    constructor(private _http: HttpClient){
+        this.setVidas();
+    }
+
+    setVidas(){
+        for(let i = 0; i <5; i++) this.totalVidas.push('assets/img/icon.png')
+    }
 
     getCharacters(): Observable<Result[]>{
         let idPages = Math.round(Math.random() * 20);

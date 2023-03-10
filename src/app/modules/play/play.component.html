@@ -1,12 +1,12 @@
-<app-won *ngIf="isComplete"></app-won>
-<app-loading *ngIf="!characters.length"></app-loading>
+<app-title-won *ngIf="isComplete"></app-title-won>
+<app-loading *ngIf="!canLoad"></app-loading>
 
 <div class="play flexCenter" *ngIf="characters.length">
   <div class="play__center">
-    <h1 class="title animate__animated animate__fadeInDown">{{title}}</h1>
+    <h1 class="title animate__animated animate__fadeInDown">Rick And Morty</h1>
     <div class="play__center-content">
       <div class="banner animate__animated animate__fadeIn">
-        <img src="assets/img/icon.png" *ngFor="let item of totalVidas" />
+        <img [src]="item" *ngFor="let item of totalVidas" />
       </div>
       <div class="play__content">
         <app-card
@@ -17,6 +17,12 @@
       </div>
     </div>
     <div class="play__footer animate__animated animate__fadeInUp">
+      <div class="footer__item">
+        <small>
+          Intentos:
+        </small>
+        <strong>{{intentos}}</strong>
+      </div>
     </div>
   </div>
 </div>
