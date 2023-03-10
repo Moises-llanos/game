@@ -1,3 +1,5 @@
+$colors: (#d13447, #ffbf00, #263672, #fff);
+
 #loading {
     user-select: none;
     z-index: 90;
@@ -5,7 +7,14 @@
     width: 100vw;
     height: 100vh;
     top: 0px;
-    transition: 500ms ease-in-out;
+    transition: 500ms all ease-in-out;
+
+
+    [class|="confetti"] {
+      position: absolute;
+      z-index: 101;
+    }
+
     .content-loading {
       z-index: 100;
       display: flex;
@@ -18,7 +27,7 @@
       -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
       background-color: rgba(0, 0, 0, 0.502);
-      transition: 500ms ease-in-out;
+      transition: 500ms all ease-in-out;
 
       .title {
         font-size: 25px;
@@ -26,12 +35,6 @@
     }
   }
 
-  [class|="confetti"] {
-    position: absolute;
-    z-index: 101;
-  }
-  
-  $colors: (#d13447, #ffbf00, #263672, #fff);
   
   @for $i from 0 through 200 {
     $w: random(35);
