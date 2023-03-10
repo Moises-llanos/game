@@ -20,7 +20,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   get title(){
-    return !this.isComplete ? 'Rick And Morty' : MESSAGE__WINNER
+    return 'Rick And Morty' 
   }
 
   constructor(private playService: PlayService) {}

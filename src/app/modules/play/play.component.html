@@ -3,7 +3,7 @@
 
 <div class="play flexCenter" *ngIf="characters.length">
   <div class="play__center">
-    <h1 class="title animate__animated" [class.animate__lightSpeedInRight]="isComplete">{{title}}</h1>
+    <h1 class="title animate__animated animate__fadeInDown">{{title}}</h1>
     <div class="play__center-content">
       <div class="banner animate__animated animate__fadeIn">
         <img src="assets/img/icon.png" *ngFor="let item of totalVidas" />
@@ -16,7 +16,7 @@
         ></app-card>
       </div>
     </div>
-    <div class="play__footer">
+    <div class="play__footer animate__animated animate__fadeInUp">
     </div>
   </div>
 </div>
