@@ -54,7 +54,7 @@ export class PlayComponent implements OnInit, OnDestroy {
       .splice(0, 10);
       
     this.characters = [...data.concat(data)].sort(() => Math.random() - 0.5);
-    setTimeout(()=> this.canLoad = true, 1000)
+    setTimeout(()=> this.canLoad = true, 1200)
   }
 
   won(){
