@@ -10,14 +10,15 @@
   bottom: 0;
   margin: auto;
   transition: 500ms ease-in-out;
+  
   .content-loading {
     z-index: +99999999999999;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     position: absolute;
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
