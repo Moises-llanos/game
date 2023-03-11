@@ -3,7 +3,7 @@ $colors: (#d13447, #ffbf00, #263672, #fff);
 
 #loading {
     user-select: none;
-    z-index: 90;
+    z-index: 300;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -13,12 +13,12 @@ $colors: (#d13447, #ffbf00, #263672, #fff);
 
     .conf {
       position: absolute;
-      z-index: 101;
+      z-index: 360;
     }
     
 
     .content-loading {
-      z-index: 100;
+      z-index: 350;
       display: flex;
       justify-content: center;
       flex-direction: column;
