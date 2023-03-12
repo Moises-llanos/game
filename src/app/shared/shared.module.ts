@@ -5,8 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LottieModule } from 'ngx-lottie';
 import { NgModule } from '@angular/core';
 import { ProgressComponent } from './components/progress/progress.component';
-
-
+import { ShowComponent } from './components/show/show.component';
 
 
 @NgModule({
@@ -15,6 +14,7 @@ import { ProgressComponent } from './components/progress/progress.component';
         LoadingComponent,
         ProgressComponent,
         CardComponent,
+        ShowComponent,
     ],
     exports: [
         TitleWonComponent,

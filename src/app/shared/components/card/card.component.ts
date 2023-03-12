@@ -12,6 +12,7 @@ import { IRamdonCards } from '../../../modules/play/models/play.models';
 export class CardComponent {
   @ViewChild('card', { static: true }) card!: ElementRef<HTMLDivElement>;
   @Output() onInterval: EventEmitter<void> = new EventEmitter();
+  @Output() onpar: EventEmitter<void> = new EventEmitter();
   @Input() dataSrc: IRamdonCards = { id: 0, image: '' };
 
 
@@ -46,6 +47,7 @@ export class CardComponent {
   }
 
   addClass() {
+    this.onpar.emit();
     this.sonido.play();
     this.playService.pares++;
     this.playService.listCardsRef.forEach(({ element: { nativeElement } }) => {

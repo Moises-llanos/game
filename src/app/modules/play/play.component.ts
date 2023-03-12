@@ -47,6 +47,10 @@ export class PlayComponent implements OnInit, OnDestroy {
     return totalValues.includes(true)
   }
 
+  setTime(){
+    this.time+=5
+  }
+
   executeMethod() {
     this.getCharactersImg();
   }

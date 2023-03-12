@@ -1,3 +1,4 @@
+<app-title-won *ngIf="true"></app-title-won>
 <app-loading *ngIf="!canLoad"></app-loading>
 <div class="play flexCenter" *ngIf="characters.length">
   <div class="play__center flexCenter">
@@ -11,7 +12,6 @@
         </div>
         <div
           class="progress animate__animated animate__fadeIn"
-          *ngIf="currentTime"
           [style.width]="width + '%'"
         ></div>
       </div>
@@ -19,6 +19,7 @@
         <app-card
           *ngFor="let item of characters"
           (onInterval)="setTimer()"
+          (onpar)="setTime()"
           [dataSrc]="item"
           #card
         ></app-card>
@@ -26,4 +27,4 @@
     </div>
   </div>
 </div>
-<app-title-won [canWinner]="isComplete"></app-title-won>
+

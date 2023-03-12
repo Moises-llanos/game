@@ -1,7 +1,7 @@
 
-<div id="loading" [style.display]="canWinner ? '': 'none'">
-    <div class="conf" [class]="'confetti-' + index" *ngFor="let item of wons; index as index"></div>
-    <div class="content-loading">
+<div class="wrapper">
+    <app-show></app-show>
+    <div class="content-box">
         <ng-lottie [options]="options" height="200px" width="250px"></ng-lottie>
         <div class="title">
             <h2>¡Completaste el nivel!</h2>
