@@ -4,6 +4,7 @@ import { CardComponent } from './components/card/card.component';
 import { CommonModule } from '@angular/common';
 import { LottieModule } from 'ngx-lottie';
 import { NgModule } from '@angular/core';
+import { ProgressComponent } from './components/progress/progress.component';
 
 
 
@@ -12,10 +13,12 @@ import { NgModule } from '@angular/core';
     declarations: [
         TitleWonComponent,
         LoadingComponent,
+        ProgressComponent,
         CardComponent,
     ],
     exports: [
         TitleWonComponent,
+        ProgressComponent,
         LoadingComponent,
         CardComponent,
     ],

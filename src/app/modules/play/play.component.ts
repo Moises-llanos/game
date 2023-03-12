@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IRamdonCards, Result } from './models/play.models';
 import { PlayService } from './service/play.service';
-import { delay, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-
+import { takeUntil, takeWhile, finalize } from 'rxjs/operators';
+import { Subject, interval } from 'rxjs';
 
 @Component({
   selector: 'app-play',
@@ -12,26 +11,40 @@ import { Subject } from 'rxjs';
 })
 export class PlayComponent implements OnInit, OnDestroy {
   public characters: IRamdonCards[] = [];
+  public currentTime: number = 0;
   public canLoad: boolean = false;
+  public time: number = 30;
+  public width: number = 0;
 
   private obsDestroy: Subject<void> = new Subject();
 
-  get totalVidas(){
-    return this.playService.totalVidas;
-  }
-
-  get isComplete(){
+  get isComplete() {
     return this.playService.pares === 10;
   }
 
-  get intentos(){
-    return this.playService.totalMovimientos
+  get intentos() {
+    return this.playService.totalMovimientos;
   }
 
   constructor(private playService: PlayService) {}
 
   ngOnInit(): void {
     this.executeMethod();
+  }
+
+  setTimer() {
+    const timer = (100 / this.time);
+    interval(1000)
+      .pipe(takeWhile(this.finalizeInterval.bind(this)))
+      .subscribe(() => {
+        this.currentTime++;
+        this.width += timer;
+      });
+  }
+
+  finalizeInterval(timer: number){
+    const totalValues =  [timer < this.time, this.isComplete];
+    return totalValues.includes(true)
   }
 
   executeMethod() {
@@ -41,7 +54,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   getCharactersImg() {
     this.playService
       .getCharacters()
-      .pipe(delay(2000), takeUntil(this.obsDestroy))
+      .pipe(takeUntil(this.obsDestroy))
       .subscribe(this.setDataCharacters.bind(this));
   }
 
@@ -52,12 +65,12 @@ export class PlayComponent implements OnInit, OnDestroy {
       .map(({ id, image }) => ({ id, image }))
       .sort(() => Math.random() - 0.5)
       .splice(0, 10);
-      
+
     this.characters = [...data.concat(data)].sort(() => Math.random() - 0.5);
-    setTimeout(()=> this.canLoad = true, 1200)
+    setTimeout(() => (this.canLoad = true), 1200);
   }
 
-  won(){
+  won() {
     this.canLoad = false;
     this.getCharactersImg();
   }
@@ -66,6 +79,4 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.obsDestroy.next();
     this.obsDestroy.unsubscribe();
   }
-
-  
 }

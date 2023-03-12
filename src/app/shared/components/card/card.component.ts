@@ -11,10 +11,10 @@ import { IRamdonCards } from '../../../modules/play/models/play.models';
 
 export class CardComponent {
   @ViewChild('card', { static: true }) card!: ElementRef<HTMLDivElement>;
-  @Output() onwom: EventEmitter<void> = new EventEmitter();
+  @Output() onInterval: EventEmitter<void> = new EventEmitter();
   @Input() dataSrc: IRamdonCards = { id: 0, image: '' };
 
-  private totalFallidos: number = 0;
+
   private get element() {
     return this.card.nativeElement;
   }
@@ -27,11 +27,11 @@ export class CardComponent {
   constructor(private playService: PlayService) {}
 
   changeImg() {
+    if(!this.playService.totalMovimientos) this.onInterval.emit();
     const hasFlY = this.element.classList.contains(ANIMATE__FLIPINY);
     const isActive = this.element.classList.contains(ACTIVE);
     if (!hasFlY && !isActive && this.totalCards < 2) {
       this.playService.totalMovimientos += 1
-      console.log(this.playService.totalMovimientos);
       this.playService.listCardsRef.push({ element: this.card, id: this.dataSrc.id });
       this.element.style.backgroundImage = `url(${this.dataSrc.image})`;
       this.element.classList.add(ANIMATE__FLIPINY);
@@ -48,7 +48,6 @@ export class CardComponent {
   addClass() {
     this.sonido.play();
     this.playService.pares++;
-    if (this.playService.pares === 10) this.onwom.emit();
     this.playService.listCardsRef.forEach(({ element: { nativeElement } }) => {
       nativeElement.classList.add(ACTIVE);
     });

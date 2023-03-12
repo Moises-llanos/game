@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 
 @Component({
@@ -8,6 +8,8 @@ import { Component } from "@angular/core";
 })
 
 export class TitleWonComponent {
+    @Input() canWinner: boolean = false;
+
     public wons = new Array(199)
     public options = {
         path: 'assets/lottie/loader.json'

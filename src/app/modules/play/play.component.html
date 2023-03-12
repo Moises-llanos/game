@@ -4,24 +4,26 @@
     <h1 class="title animate__animated animate__fadeInDown">Rick And Morty</h1>
     <div class="play__center-content">
       <div class="banner animate__animated animate__fadeIn">
-        <img [src]="item" *ngFor="let item of totalVidas" />
+        <div class="timer">
+          <small
+            >Tiempo : <strong>{{ currentTime }} / {{ time }}</strong></small
+          >
+        </div>
+        <div
+          class="progress animate__animated animate__fadeIn"
+          *ngIf="currentTime"
+          [style.width]="width + '%'"
+        ></div>
       </div>
       <div class="play__content">
         <app-card
           *ngFor="let item of characters"
+          (onInterval)="setTimer()"
           [dataSrc]="item"
           #card
         ></app-card>
       </div>
     </div>
-    <div class="play__footer animate__animated animate__fadeInUp">
-      <div class="footer__item">
-        <small>
-          Intentos:
-        </small>
-        <strong>{{intentos}}</strong>
-      </div>
-    </div>
   </div>
 </div>
-<app-title-won *ngIf="isComplete"></app-title-won>
+<app-title-won [canWinner]="isComplete"></app-title-won>
