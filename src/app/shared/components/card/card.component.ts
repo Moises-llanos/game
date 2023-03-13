@@ -23,7 +23,7 @@ export class CardComponent {
 
   
   private sonido = new Audio('assets/sonido/click.mp3');
-  
+
   private get totalCards() {
     return this.playService.listCardsRef.length;
   }

@@ -43,10 +43,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   finalizeInterval(timer: number){
-    const totalValues =  timer < this.time || this.isComplete;
-    console.log(totalValues);
-    return totalValues
-    
+    return this.isComplete || timer < this.time;
   }
 
   setTime(){

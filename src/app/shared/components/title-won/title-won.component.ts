@@ -6,6 +6,7 @@ import { Component, Input } from "@angular/core";
 })
 
 export class TitleWonComponent {
+    @Input() canWon: boolean = false;
     public options = {
         path: 'assets/lottie/loader.json'
     }
