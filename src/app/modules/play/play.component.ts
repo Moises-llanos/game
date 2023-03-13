@@ -43,8 +43,10 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   finalizeInterval(timer: number){
-    const totalValues =  [timer < this.time, this.isComplete];
-    return totalValues.includes(true)
+    const totalValues =  timer < this.time || this.isComplete;
+    console.log(totalValues);
+    return totalValues
+    
   }
 
   setTime(){
@@ -66,11 +68,11 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.playService.pares = 0;
     this.characters = [];
     const data = result
-      .map(({ id, image }) => ({ id, image }))
-      .sort(() => Math.random() - 0.5)
-      .splice(0, 10);
+      .map(({ id, image }) => ({ id, image, status: false }))
+      .sort(() => Math.random() - 0.5).splice(0, 10);
 
-    this.characters = [...data.concat(data)].sort(() => Math.random() - 0.5);
+    const dataCopy = [...JSON.parse(JSON.stringify(data))];
+    this.characters = [...data, ...dataCopy].sort(() => Math.random() - 0.5);
     setTimeout(() => (this.canLoad = true), 1200);
   }
 

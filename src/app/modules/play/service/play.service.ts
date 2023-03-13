@@ -1,4 +1,4 @@
-import { Result, DataCharacters, ICompareCard } from '../models/play.models';
+import { Result, DataCharacters, ICompareCard, IRamdonCards } from '../models/play.models';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { map, Observable } from "rxjs";
@@ -11,7 +11,7 @@ import { delay } from "rxjs/operators";
 })
 
 export class PlayService {
-    public cardsRef: ICompareCard[] = [];
+    public cardsRef: IRamdonCards[] = [];
     private API: string = 'https://rickandmortyapi.com/api/character';
     private totalPares: number = 0;
     public totalMovimientos: number = 0;
@@ -28,7 +28,7 @@ export class PlayService {
         return this.cardsRef
     }
 
-    set listCardsRef(arr: ICompareCard[]){
+    set listCardsRef(arr: IRamdonCards[]){
         this.cardsRef = arr
     }
 

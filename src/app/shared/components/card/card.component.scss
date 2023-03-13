@@ -1,15 +1,26 @@
 .card {
-    background-image: url('../../../../assets/img/fondo__card.jpg');
-    background-repeat: no-repeat;
-    transform-style: preserve-3d;
-    background-position: center;
     border: 1px solid #B3D54D;
-    background-size: cover;
     border-radius: 10px;
     transition: 500ms;
+    overflow: hidden;
     cursor: pointer;
     height: 90px;
     width: 90px;
+
+    .front {
+        height: inherit;
+        width: inherit;
+        
+        img {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+    }
+
+    .back {
+        @extend .front;
+    }
 }
 
 

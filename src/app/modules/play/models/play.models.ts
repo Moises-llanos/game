@@ -33,6 +33,8 @@ export interface Info {
 
 
 export interface IRamdonCards {
+  active?: boolean
+  status: boolean;
   image: string;
   id: number;
 }

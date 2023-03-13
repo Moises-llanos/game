@@ -1,5 +1,13 @@
 <div
   class="card animate__animated animate__fadeIn"
+  [class.animate__flipInX]="!statusCard && statusCard"
+  [class.animate__flipInY]="statusCard"
   (click)="changeImg()"
-  #card
-></div>
+>
+  <div class="front" *ngIf="statusCard">
+    <img [src]="dataSrc.image" />
+  </div>
+  <div class="back" *ngIf="!statusCard">
+    <img [src]="urlBack" />
+  </div>
+</div>

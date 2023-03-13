@@ -10,17 +10,20 @@ import { IRamdonCards } from '../../../modules/play/models/play.models';
 })
 
 export class CardComponent {
-  @ViewChild('card', { static: true }) card!: ElementRef<HTMLDivElement>;
   @Output() onInterval: EventEmitter<void> = new EventEmitter();
   @Output() onpar: EventEmitter<void> = new EventEmitter();
-  @Input() dataSrc: IRamdonCards = { id: 0, image: '' };
+  @Input() dataSrc: IRamdonCards = { id: 0, image: '', status: false };
+  public urlBack: string = 'assets/img/fondo__card.jpg';
+  
 
 
-  private get element() {
-    return this.card.nativeElement;
+  get statusCard(){
+    return this.dataSrc.status;
   }
-  private url: string = 'assets/img/fondo__card.jpg';
+
+  
   private sonido = new Audio('assets/sonido/click.mp3');
+  
   private get totalCards() {
     return this.playService.listCardsRef.length;
   }
@@ -29,13 +32,11 @@ export class CardComponent {
 
   changeImg() {
     if(!this.playService.totalMovimientos) this.onInterval.emit();
-    const hasFlY = this.element.classList.contains(ANIMATE__FLIPINY);
-    const isActive = this.element.classList.contains(ACTIVE);
-    if (!hasFlY && !isActive && this.totalCards < 2) {
+    const { status, active } = this.dataSrc;
+    if (!status && !active && this.totalCards < 2) {
       this.playService.totalMovimientos += 1
-      this.playService.listCardsRef.push({ element: this.card, id: this.dataSrc.id });
-      this.element.style.backgroundImage = `url(${this.dataSrc.image})`;
-      this.element.classList.add(ANIMATE__FLIPINY);
+      this.playService.listCardsRef.push(this.dataSrc);
+      this.dataSrc.status = true;
       if (this.totalCards === 2) this.compareCards();
     }
   }
@@ -50,21 +51,13 @@ export class CardComponent {
     this.onpar.emit();
     this.sonido.play();
     this.playService.pares++;
-    this.playService.listCardsRef.forEach(({ element: { nativeElement } }) => {
-      nativeElement.classList.add(ACTIVE);
-    });
+    this.playService.listCardsRef.forEach((e) => e.active = true);
     this.playService.listCardsRef = [];
   }
 
   removeClass() {
     setTimeout(() => {
-      this.playService.listCardsRef.forEach(
-        ({ element: { nativeElement } }) => {
-          nativeElement.classList.add(ANIMATE__FLIPINX);
-          nativeElement.style.backgroundImage = `url(${this.url})`;
-          nativeElement.classList.remove(ANIMATE__FLIPINY);
-        }
-      );
+      this.playService.listCardsRef.forEach(e => e.status = false);
       this.playService.listCardsRef = [];
     }, 900);
   }
