@@ -5,12 +5,9 @@
   height: 100%;
   top: 0px;
   right: 0;
-  left: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-backdrop-filter: blur(4px);
+  
   backdrop-filter: blur(4px);
-  background-color: rgba(0, 0, 0, 0.502);
+  background-color: rgba(0, 0, 0, 0.4);
   transition: 500ms ease-in-out;
   z-index: 10;
 }
@@ -20,9 +17,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: inherit;
-  width: inherit;
-  transition: 500ms ease-in-out;
+
  
   .title {
     text-align: center;
