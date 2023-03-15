@@ -2,18 +2,18 @@
 
 
 body {
-    margin: 0;
-    list-style: none;
-    padding: 0;
-    box-sizing: border-box;
     background-image: url('assets/img/logo.jpg');
+    font-family: "Source Sans Pro";
     background-repeat: no-repeat;
     background-size: cover;
+    box-sizing: border-box;
+    @extend .flexCenter;
+    list-style: none;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
-    @extend .flexCenter;
-    font-family: "Source Sans Pro";
+    padding: 0;
+    margin: 0;
 }
 
 h1,
@@ -22,26 +22,14 @@ h3,
 h4,
 h5,
 h6 {
+  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
   font-family: "Metal Mania", cursive;
   color: #02b1c8;
-  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
 }
 
 small {
   color: #7ffa67;
   font-size: 17px;
-}
-
-
-.posicionFixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  height: 100vh;
-  width: 100vw;
 }
 
 
@@ -56,12 +44,4 @@ small {
     justify-content: space-between;
 }
 
-@keyframes slide {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-1920px, 0, 0); /* The image width */
-    }
-  }
 

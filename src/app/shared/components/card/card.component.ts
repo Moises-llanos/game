@@ -1,5 +1,4 @@
-import { ACTIVE, ANIMATE__FLIPINX, ANIMATE__FLIPINY } from 'src/app/core/constants/constants';
-import { Component, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { PlayService } from '../../../modules/play/service/play.service';
 import { IRamdonCards } from '../../../modules/play/models/play.models';
 
@@ -10,17 +9,14 @@ import { IRamdonCards } from '../../../modules/play/models/play.models';
 })
 
 export class CardComponent {
+  @Input() dataSrc: IRamdonCards = { id: 0, image: '', status: false };
   @Output() onInterval: EventEmitter<void> = new EventEmitter();
   @Output() onpar: EventEmitter<void> = new EventEmitter();
-  @Input() dataSrc: IRamdonCards = { id: 0, image: '', status: false };
   public urlBack: string = 'assets/img/fondo__card.jpg';
-  
-
 
   get statusCard(){
     return this.dataSrc.status;
   }
-
   
   private sonido = new Audio('assets/sonido/click.mp3');
 
