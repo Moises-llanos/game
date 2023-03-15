@@ -43,7 +43,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   finalizeInterval(timer: number){
-    return this.isComplete || timer < this.time;
+    return !this.isComplete && timer < this.time;
   }
 
   setTime(){
@@ -70,7 +70,7 @@ export class PlayComponent implements OnInit, OnDestroy {
 
     const dataCopy = [...JSON.parse(JSON.stringify(data))];
     this.characters = [...data, ...dataCopy].sort(() => Math.random() - 0.5);
-    setTimeout(() => (this.canLoad = true), 1200);
+    setTimeout(() => (this.canLoad = true), 1300);
   }
 
   won() {

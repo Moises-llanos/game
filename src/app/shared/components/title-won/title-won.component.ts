@@ -1,17 +1,12 @@
-import { AfterViewChecked, Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 @Component({
     selector: 'app-title-won',
     templateUrl: './title-won.component.html',
     styleUrls: ['./title-won.component.scss']
 })
 
-export class TitleWonComponent implements AfterViewChecked {
-    @Input() canWon: boolean = false;
+export class TitleWonComponent {
     public options = {
         path: 'assets/lottie/loader.json'
-    }
-
-    ngAfterViewChecked(): void {
-        
     }
 }
