@@ -1,4 +1,5 @@
-import { Result, DataCharacters, ICompareCard, IRamdonCards } from '../models/play.models';
+import { Result, DataCharacters, IRamdonCards } from '../models/play.models';
+import { environment } from '../../../../environments/environment';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { map, Observable } from "rxjs";
@@ -12,7 +13,7 @@ import { delay } from "rxjs/operators";
 
 export class PlayService {
     public cardsRef: IRamdonCards[] = [];
-    private API: string = 'https://rickandmortyapi.com/api/character';
+    private API: string = environment.BASE_URL;
     private totalPares: number = 0;
     public totalMovimientos: number = 0;
    
@@ -38,7 +39,7 @@ export class PlayService {
     getCharacters(): Observable<Result[]>{
         let idPages = Math.round(Math.random() * 20);
         const params = new HttpParams().set('page', `${idPages ||= 2 }`)
-        return this._http.get<DataCharacters>(this.API, {params})
+        return this._http.get<DataCharacters>(`${this.API}character`, { params })
         .pipe(map(({results})=> results), delay(2000))
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IRamdonCards, Result } from './models/play.models';
 import { PlayService } from './service/play.service';
-import { takeUntil, takeWhile, finalize } from 'rxjs/operators';
+import { takeUntil, takeWhile } from 'rxjs/operators';
 import { Subject, interval } from 'rxjs';
 
 @Component({

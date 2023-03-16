@@ -1,8 +1,7 @@
-import { ElementRef } from '@angular/core';
 export interface DataCharacters {
     info: Info;
     results: Result[];
-  }
+}
   
 export interface Result {
     id: number;
@@ -17,12 +16,12 @@ export interface Result {
     episode: string[];
     url: string;
     created: string;
-  }
+}
 
 export interface Origin {
     name: string;
     url: string;
-  }
+}
   
 export interface Info {
     count: number;
@@ -31,16 +30,11 @@ export interface Info {
     prev?: any;
 }
 
-
 export interface IRamdonCards {
-  active?: boolean
+  active?: boolean;
   status: boolean;
   image: string;
   id: number;
 }
 
-export interface ICompareCard {
-  element: ElementRef<HTMLDivElement>,
-  id: number
-}
 
