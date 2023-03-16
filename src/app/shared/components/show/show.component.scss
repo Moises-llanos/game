@@ -1,8 +1,8 @@
 $colors: (#d13447, #ffbf00, #263672, #fff);
 
 .conf {
-    position: absolute;
-    z-index: 1;
+    position: fixed;
+    z-index: 10000000000;
 }
 
 @for $i from 0 through 200 {
