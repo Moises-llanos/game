@@ -44,4 +44,18 @@ small {
     justify-content: space-between;
 }
 
+.mask {
+  background-color: transparent;
+  z-index: 100000000000;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+
 
