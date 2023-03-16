@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'play',
     loadChildren: ()=> import('./modules/play/play.module').then(m=> m.PlayModule),
-    title: 'A jugar...'
+    title: 'Es hora de jugar'
   },
   {
     path: '**',
