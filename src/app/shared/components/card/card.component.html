@@ -5,10 +5,10 @@
   (click)="changeImg()"
 >
   <div class="front" [style.display]="statusCard ? '' : 'none'" >
-    <img [ngSrc]="dataSrc.image" width="90" height="90"/>
+    <img [src]="dataSrc.image" />
   </div>
   
   <div class="back" [style.display]="!statusCard ? '' : 'none'">
-    <img [ngSrc]="urlBack" width="90" height="90"/>
+    <img [src]="urlBack" />
   </div>
 </div>
