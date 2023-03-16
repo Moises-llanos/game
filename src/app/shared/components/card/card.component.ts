@@ -18,13 +18,19 @@ export class CardComponent {
     return this.dataSrc.status;
   }
   
-  private sonido = new Audio('assets/sonido/click.mp3');
+  private baseAudio: string = 'assets/sonido/';
+  private sonido = new Audio('');
 
   private get totalCards() {
     return this.playService.listCardsRef.length;
   }
 
   constructor(private playService: PlayService) {}
+
+  setSrcAudio(src?: string){
+    this.sonido.src = `${this.baseAudio + src}`;
+    this.sonido.play();
+  }
 
   changeImg() {
     if(!this.playService.totalMovimientos) this.onInterval.emit();
@@ -45,13 +51,14 @@ export class CardComponent {
 
   addClass() {
     this.onpar.emit();
-    this.sonido.play();
     this.playService.pares++;
+    this.playService.pares === 10 ? this.setSrcAudio('won.mp3') : this.setSrcAudio('click.mp3');
     this.playService.listCardsRef.forEach((e) => e.active = true);
     this.playService.listCardsRef = [];
   }
 
   removeClass() {
+    this.setSrcAudio('failed.mp3')
     setTimeout(() => {
       this.playService.listCardsRef.forEach(e => e.status = false);
       this.playService.listCardsRef = [];
