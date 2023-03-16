@@ -18,7 +18,7 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   private obsDestroy: Subject<void> = new Subject();
 
-  public get isComplete() {
+  private get isComplete() {
     return this.playService.pares === 10;
   }
 
