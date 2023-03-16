@@ -46,7 +46,6 @@ export class CardComponent {
   addClass() {
     this.onpar.emit();
     this.sonido.play();
-    navigator.vibrate(200)
     this.playService.pares++;
     this.playService.listCardsRef.forEach((e) => e.active = true);
     this.playService.listCardsRef = [];
