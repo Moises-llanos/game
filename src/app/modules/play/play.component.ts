@@ -12,14 +12,22 @@ import { Subject, interval } from 'rxjs';
 export class PlayComponent implements OnInit, OnDestroy {
   public characters: IRamdonCards[] = [];
   public currentTime: number = 0;
-  public isWinner: boolean = true;
   public canLoad: boolean = false;
   public time: number = 30;
   public width: number = 0;
 
   private obsDestroy: Subject<void> = new Subject();
-  private get isComplete() {
+
+  get isWinner(){
+    return this.playService.isWinner
+  }
+
+  get isComplete() {
     return this.playService.pares === 10;
+  }
+
+  get pares(){
+    return this.playService.pares
   }
 
   get intentos() {

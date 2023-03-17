@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 @Component({
     selector: 'app-title-won',
     templateUrl: './title-won.component.html',
@@ -7,6 +7,10 @@ import { Component, Input } from "@angular/core";
 
 export class TitleWonComponent  {
     @Input() isWinner: boolean = true;
+    @Input() time: number = 0;
+    @Input() pares: number = 0;
+    @Output() onNewPlay: EventEmitter<void> = new EventEmitter()
+
     public options = {
         path: 'assets/lottie/loader.json'
     }

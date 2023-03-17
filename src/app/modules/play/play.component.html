@@ -1,5 +1,15 @@
+<app-title-won
+  [isWinner]="isWinner"
+  *ngIf="isComplete || !isWinner"
+  (onNewPlay)="won()"
+  [time]="currentTime"
+  [pares]="pares"
+></app-title-won>
 <app-loading *ngIf="!canLoad"></app-loading>
-<div class="play flexCenter animate__animated animate__fadeInUp" *ngIf="characters.length">
+<div
+  class="play flexCenter animate__animated animate__fadeInUp"
+  *ngIf="characters.length"
+>
   <div class="play__center flexCenter">
     <h1 class="title">Rick And Morty</h1>
     <div class="play__center-content">
@@ -26,4 +36,3 @@
     </div>
   </div>
 </div>
-

@@ -16,7 +16,70 @@
 
   .title {
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
+  }
+
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+    .title__card {
+      
+      h5 {
+        margin: 0;
+        color: #121E24;
+      }
+    }
+
+    .card {
+      width: 70px;
+      height: 65px;
+      background-color: #FFC800;
+      border-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-align: center;
+
+      .item__card {
+        width: 95%;
+        height: 60%;
+        background-color: #121E24;
+        margin: 5px auto;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFD900;
+
+        .icon {
+          margin: 0 5px;
+        }
+      }
+    }
+    .card__pares {
+      @extend .card;
+      background-color: #48BFF8;
+
+      .item__card {
+        color: #48BFF8;
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+    height: 40px;
+    background-color: #48BFF8;
+    margin: 30px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: rgb(255, 217, 0, 3)  0px 1px 2px 0px, rgb(255, 217, 0,15) 0px 2px 6px 2px;
+
+    h2 {
+      color: #121E24;
+    }
   }
 }
 

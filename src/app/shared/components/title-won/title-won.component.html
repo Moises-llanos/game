@@ -5,6 +5,37 @@
         <div class="title">
             <h2>{{isWinner ? '¡Completaste el nivel!' : '¡GAME OVER!'}} </h2>
         </div>
+        <div class="cards">
+            <div class="card">
+                <div class="title__card">
+                    <h5>TIEMPO</h5>
+                </div>
+                <div class="item__card">
+                    <div class="icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="value">
+                        {{time}}
+                    </div>
+                </div>
+            </div>
+            <div class="card__pares">
+                <div class="title__card">
+                    <h5>PARES</h5>
+                </div>
+                <div class="item__card">
+                    <div class="icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="value">
+                        {{pares}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn flexCenter" (click)="onNewPlay.emit()">
+            <h2>Continuar</h2>
+        </div>
     </div>
 </div>
   
