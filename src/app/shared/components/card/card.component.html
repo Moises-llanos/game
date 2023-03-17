@@ -1,6 +1,6 @@
 <div
   class="card animate__animated"
-  [class.animate__flipInX]="!statusCard"
+  [class.animate__flipInX]="!statusCard && isNewComponent"
   [class.animate__flipInY]="statusCard"
   (click)="changeImg()"
 >

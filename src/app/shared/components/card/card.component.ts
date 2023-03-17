@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { PlayService } from '../../../modules/play/service/play.service';
 import { IRamdonCards } from '../../../modules/play/models/play.models';
 
@@ -8,11 +8,12 @@ import { IRamdonCards } from '../../../modules/play/models/play.models';
   styleUrls: ['./card.component.scss'],
 })
 
-export class CardComponent {
+export class CardComponent implements OnDestroy {
   @Input() dataSrc: IRamdonCards = { id: 0, image: '', status: false };
   @Output() onInterval: EventEmitter<void> = new EventEmitter();
   @Output() onpar: EventEmitter<void> = new EventEmitter();
   public urlBack: string = 'assets/img/fondo__card.jpg';
+  public isNewComponent: boolean = false;
 
   get statusCard(){
     return this.dataSrc.status;
@@ -46,6 +47,7 @@ export class CardComponent {
   compareCards() {
     const firstCard = this.playService.listCardsRef[0];
     const secondCard = this.playService.listCardsRef[1];
+    if(!this.isNewComponent) this.isNewComponent = true;
     firstCard.id !== secondCard.id ? this.removeClass() : this.addClass();
   }
 
@@ -63,5 +65,9 @@ export class CardComponent {
       this.playService.listCardsRef.forEach(e => e.status = false);
       this.playService.listCardsRef = [];
     }, 900);
+  }
+
+  ngOnDestroy(): void {
+    this.isNewComponent = false;
   }
 }
