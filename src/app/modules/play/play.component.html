@@ -1,13 +1,11 @@
 <app-loading *ngIf="!canLoad"></app-loading>
-<div class="play flexCenter animate__animated animate__pulse" *ngIf="characters.length">
+<div class="play flexCenter animate__animated animate__zoomIn" *ngIf="characters.length">
   <div class="play__center flexCenter">
     <h1 class="title">Rick And Morty</h1>
     <div class="play__center-content">
       <div class="banner">
         <div class="timer">
-          <small
-            >Tiempo : <strong>{{ currentTime }} / {{ time }}</strong></small
-          >
+          <small>Tiempo : <strong>{{ currentTime }} / {{ time }}</strong></small>
         </div>
         <div class="progress" [style.width]="width + '%'"></div>
       </div>
