@@ -14,9 +14,17 @@ import { delay } from "rxjs/operators";
 export class PlayService {
     public cardsRef: IRamdonCards[] = [];
     private API: string = environment.BASE_URL;
-    private totalPares: number = 0;
     public totalMovimientos: number = 0;
-   
+    private totalPares: number = 0;
+    private winner: boolean = true;
+    
+    get isWinner() {
+        return this.winner
+    }
+
+    set isWinner(isWinner: boolean){
+        this.winner = isWinner
+    }
     
     get pares(){
         return this.totalPares;

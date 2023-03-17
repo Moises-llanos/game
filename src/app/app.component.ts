@@ -11,5 +11,9 @@ export class AppComponent {
     return this.playService.pares === 10;
   }
 
+  get isWinner(){
+    return this.playService.isWinner
+  }
+
   constructor(private playService: PlayService){}
 }

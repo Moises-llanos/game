@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 @Component({
     selector: 'app-title-won',
     templateUrl: './title-won.component.html',
@@ -6,7 +6,11 @@ import { Component } from "@angular/core";
 })
 
 export class TitleWonComponent  {
+    @Input() isWinner: boolean = true;
     public options = {
         path: 'assets/lottie/loader.json'
+    }
+    public gameOver = {
+        path: 'assets/lottie/game-over.json'
     }
 }

@@ -12,12 +12,12 @@ import { Subject, interval } from 'rxjs';
 export class PlayComponent implements OnInit, OnDestroy {
   public characters: IRamdonCards[] = [];
   public currentTime: number = 0;
+  public isWinner: boolean = true;
   public canLoad: boolean = false;
   public time: number = 30;
   public width: number = 0;
 
   private obsDestroy: Subject<void> = new Subject();
-
   private get isComplete() {
     return this.playService.pares === 10;
   }
@@ -33,21 +33,24 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   setTimer() {
-    const timer = (100 / this.time);
     interval(1000)
       .pipe(takeWhile(this.finalizeInterval.bind(this)))
-      .subscribe(() => {
-        this.currentTime++;
-        this.width += timer;
-      });
+      .subscribe(this.setProgress.bind(this));
   }
 
-  finalizeInterval(timer: number){
-    return !this.isComplete && timer < this.time;
+  setProgress(){
+    this.currentTime++;
+    this.width = (this.currentTime / this.time) * 100;
   }
 
-  setTime(){
-    this.time+=5
+  finalizeInterval(timer: number) {
+    const hasFinalize = ![this.isComplete, timer === this.time].includes(true);
+    if (timer === this.time && !this.isComplete) this.playService.isWinner = false;
+    return hasFinalize;
+  }
+
+  setTime() {
+    this.time += 5;
   }
 
   executeMethod() {
@@ -66,7 +69,8 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.characters = [];
     const data = result
       .map(({ id, image }) => ({ id, image, status: false }))
-      .sort(() => Math.random() - 0.5).splice(0, 10);
+      .sort(() => Math.random() - 0.5)
+      .splice(0, 10);
 
     const dataCopy = [...JSON.parse(JSON.stringify(data))];
     this.characters = [...data, ...dataCopy].sort(() => Math.random() - 0.5);

@@ -1,2 +1,2 @@
-<app-title-won *ngIf="isComplete"></app-title-won>
+<app-title-won [isWinner]="isWinner" *ngIf="isComplete || !isWinner"></app-title-won>
 <router-outlet></router-outlet>
