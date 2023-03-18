@@ -73,8 +73,6 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   setDataCharacters(result: Result[]) {
-    this.playService.pares = 0;
-    this.characters = [];
     const data = result
       .map(({ id, image }) => ({ id, image, status: false }))
       .sort(() => Math.random() - 0.5)
@@ -86,7 +84,15 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   won() {
+    this.playService.totalMovimientos = 0;
+    this.playService.listCardsRef = [];
+    this.playService.isWinner = true;
+    this.playService.pares = 0;
     this.canLoad = false;
+    this.currentTime = 0;
+    this.characters = [];
+    this.width = 0;
+    this.time = 30;
     this.getCharactersImg();
   }
 
