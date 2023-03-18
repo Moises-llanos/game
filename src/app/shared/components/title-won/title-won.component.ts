@@ -7,8 +7,9 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 export class TitleWonComponent  {
     @Input() isWinner: boolean = true;
-    @Input() time: number = 0;
+    @Input() intentos: number = 0;
     @Input() pares: number = 0;
+    @Input() time: number = 0;
     @Output() onNewPlay: EventEmitter<void> = new EventEmitter()
 
     public options = {

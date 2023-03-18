@@ -2,6 +2,7 @@
   [isWinner]="isWinner"
   *ngIf="isComplete || !isWinner"
   (onNewPlay)="won()"
+  [intentos]="intentos"
   [time]="currentTime"
   [pares]="pares"
 ></app-title-won>
