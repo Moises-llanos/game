@@ -30,8 +30,13 @@ export class CardComponent {
 
   setSrcAudio(src?: string){
     this.sonido.src = `${this.baseAudio + src}`;
-    setTimeout(()=> this.sonido.pause(), 900);
     this.sonido.play();
+  }
+
+  clearSonido(){
+    this.sonido.pause();
+    this.sonido.setAttribute('src', '');
+    this.sonido.remove();
   }
 
   changeImg() {
@@ -57,7 +62,7 @@ export class CardComponent {
     this.playService.pares === 10 ? this.setSrcAudio('won.mp3') : this.setSrcAudio('click.mp3');
     this.playService.listCardsRef.forEach((e) => e.active = true);
     this.playService.listCardsRef = [];
-    
+    setTimeout(()=> this.clearSonido(), 900)
   }
 
   removeClass() {
@@ -65,6 +70,7 @@ export class CardComponent {
     setTimeout(() => {
       this.playService.listCardsRef.forEach(e => e.status = false);
       this.playService.listCardsRef = [];
+      this.clearSonido();
     }, 900);
   }
 
