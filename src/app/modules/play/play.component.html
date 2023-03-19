@@ -1,13 +1,13 @@
 <app-title-won
-  [isWinner]="isWinner"
-  *ngIf="isComplete || !isWinner"
-  (onNewPlay)="won()"
+  [isActive]="isComplete || !isWinner"
   [intentos]="intentos"
+  [isWinner]="isWinner"
   [time]="currentTime"
+  (onNewPlay)="won()"
   [pares]="pares"
 ></app-title-won>
 <app-loading *ngIf="!canLoad"></app-loading>
-<!-- <div
+<div
   class="play flexCenter animate__animated animate__fadeInUp"
   *ngIf="characters.length"
 >
@@ -36,4 +36,4 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>

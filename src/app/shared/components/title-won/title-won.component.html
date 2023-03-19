@@ -1,4 +1,4 @@
-<div class="wrapper flexCenter">
+<div class="wrapper flexCenter" [style.display]="isActive ? '' : 'none'">
     <app-show *ngIf="isWinner"></app-show>
     <div class="content-box flexCenter">
         <ng-lottie [options]="isWinner ? options : gameOver" height="200px" width="250px"></ng-lottie>

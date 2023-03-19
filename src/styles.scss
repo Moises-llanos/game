@@ -12,6 +12,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     @extend .flexCenter;
+    align-items: flex-start;
     min-height: 100vh;
 }
 
