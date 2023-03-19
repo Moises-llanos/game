@@ -4,7 +4,6 @@
     padding: 10px;
     text-align: center;
     flex-direction: column;
-    margin-bottom: 25px;
     gap: 5px;
 
     .title {
@@ -20,7 +19,8 @@
       gap: 10px;
 
       .banner {
-        background-color: rgba(0, 0, 0, 0.55);
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 100%);
         transition: all 500ms;
         border-radius: 5px;
         overflow: hidden;
