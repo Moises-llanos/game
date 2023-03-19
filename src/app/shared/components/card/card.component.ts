@@ -35,7 +35,6 @@ export class CardComponent {
 
   clearSonido(){
     this.sonido.pause();
-    this.sonido.setAttribute('src', '');
   }
 
   changeImg() {
