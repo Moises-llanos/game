@@ -36,7 +36,6 @@ export class CardComponent {
   clearSonido(){
     this.sonido.pause();
     this.sonido.setAttribute('src', '');
-    this.sonido.remove();
   }
 
   changeImg() {
@@ -66,7 +65,7 @@ export class CardComponent {
   }
 
   removeClass() {
-    this.setSrcAudio('failed.mp3')
+    this.setSrcAudio('failed.mp3');
     setTimeout(() => {
       this.playService.listCardsRef.forEach(e => e.status = false);
       this.playService.listCardsRef = [];
