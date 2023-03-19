@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { PlayService } from '../../../modules/play/service/play.service';
 import { IRamdonCards } from '../../../modules/play/models/play.models';
 
@@ -8,7 +8,7 @@ import { IRamdonCards } from '../../../modules/play/models/play.models';
   styleUrls: ['./card.component.scss'],
 })
 
-export class CardComponent {
+export class CardComponent implements OnDestroy {
   @Input() dataSrc: IRamdonCards = { id: 0, image: '', status: false };
   @Output() onInterval: EventEmitter<void> = new EventEmitter();
   @Output() onpar: EventEmitter<void> = new EventEmitter();
@@ -31,10 +31,6 @@ export class CardComponent {
   setSrcAudio(src?: string){
     this.sonido.src = `${this.baseAudio + src}`;
     this.sonido.play();
-  }
-
-  clearSonido(){
-    this.sonido.pause();
   }
 
   changeImg() {
@@ -60,7 +56,7 @@ export class CardComponent {
     this.playService.pares === 10 ? this.setSrcAudio('won.mp3') : this.setSrcAudio('click.mp3');
     this.playService.listCardsRef.forEach((e) => e.active = true);
     this.playService.listCardsRef = [];
-    setTimeout(()=> this.clearSonido(), 900)
+   
   }
 
   removeClass() {
@@ -68,9 +64,11 @@ export class CardComponent {
     setTimeout(() => {
       this.playService.listCardsRef.forEach(e => e.status = false);
       this.playService.listCardsRef = [];
-      this.clearSonido();
     }, 900);
   }
 
+  ngOnDestroy(): void {
+      this.sonido.pause();
+  }
 
 }
