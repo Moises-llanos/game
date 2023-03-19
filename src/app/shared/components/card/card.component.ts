@@ -45,9 +45,9 @@ export class CardComponent implements OnDestroy {
   }
 
   compareCards() {
-    const firstCard = this.playService.listCardsRef[0];
-    const secondCard = this.playService.listCardsRef[1];
-    firstCard.id !== secondCard.id ? this.removeClass() : this.addClass();
+    const isEqual = this.playService.listCardsRef
+    .every(({id})=> id === this.dataSrc.id);
+    isEqual ?  this.addClass() : this.removeClass();
   }
 
   addClass() {
