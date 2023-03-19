@@ -1,19 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-
+* {
+  font-family: "Source Sans Pro";
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 body {
     background-image: url('assets/img/logo.jpg');
-    font-family: "Source Sans Pro";
     background-repeat: no-repeat;
     background-size: cover;
-    box-sizing: border-box;
     @extend .flexCenter;
-    list-style: none;
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
-    padding: 0;
-    margin: 0;
+    min-height: 100vh;
 }
 
 h1,
