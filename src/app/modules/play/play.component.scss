@@ -9,6 +9,7 @@
 
     .points {
       background-color: rgb(179, 213, 77, .8);
+      animation: points 1s ease-out;
       position: absolute;
       border-radius: 50%;
       font-size: 35px;
@@ -122,5 +123,14 @@
 }
 
 
-
-
+@keyframes points {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1.50);
+  }
+}
