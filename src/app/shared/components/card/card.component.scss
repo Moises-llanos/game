@@ -1,11 +1,12 @@
 .card {
-    border: 1px solid #424242;
+    border: 1px solid #343434;
     border-radius: 10px;
     transition: 500ms;
     overflow: hidden;
     cursor: pointer;
     height: 90px;
     width: 90px;
+    z-index: 10;
 
     .front {
         height: inherit;

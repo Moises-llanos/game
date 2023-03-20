@@ -55,7 +55,7 @@ export class CardComponent implements OnDestroy {
     this.playService.pares++;
     this.playService.pares === 10 ? this.setSrcAudio('won.mp3') : this.setSrcAudio('click.mp3');
     this.playService.listCardsRef.forEach((e) => e.active = true);
-    setTimeout(()=> this.playService.hasPoints = false, 700);
+    setTimeout(()=> this.playService.hasPoints = false, 800);
     this.playService.listCardsRef = [];
   }
 
