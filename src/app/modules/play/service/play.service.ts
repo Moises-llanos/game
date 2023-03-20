@@ -17,6 +17,15 @@ export class PlayService {
     public totalMovimientos: number = 0;
     private totalPares: number = 0;
     private winner: boolean = true;
+    private points: boolean = false;
+
+    get hasPoints(){
+        return this.points
+    }
+
+    set hasPoints(points: boolean){
+        this.points = points;
+    }
     
     get isWinner() {
         return this.winner

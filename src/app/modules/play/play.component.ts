@@ -34,6 +34,10 @@ export class PlayComponent implements OnInit, OnDestroy {
     return this.playService.totalMovimientos;
   }
 
+  get hasPoints(){
+    return this.playService.hasPoints
+  }
+
   constructor(private playService: PlayService) {}
 
   ngOnInit(): void {
@@ -59,6 +63,8 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   setTime() {
     this.time += 5;
+    this.playService.hasPoints = true;
+    setTimeout(()=> this.playService.hasPoints = false, 800);
   }
 
   executeMethod() {

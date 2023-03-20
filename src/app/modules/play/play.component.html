@@ -12,6 +12,9 @@
   *ngIf="characters.length"
 >
   <div class="play__center flexCenter">
+    <div class="points flexCenter animate__animated animate__bounceIn" *ngIf="hasPoints">
+      <h3>+5</h3>
+    </div>
     <h1 class="title">Rick And Morty</h1>
     <div class="play__center-content">
       <div class="banner animate__animated">
