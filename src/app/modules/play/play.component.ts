@@ -85,7 +85,7 @@ export class PlayComponent implements OnInit, OnDestroy {
 
     const dataCopy = [...JSON.parse(JSON.stringify(data))];
     this.characters = [...data, ...dataCopy].sort(() => Math.random() - 0.5);
-    setTimeout(() => (this.canLoad = true), 1300);
+    setTimeout(() => {this.canLoad = true}, 1300);
   }
 
   won() {

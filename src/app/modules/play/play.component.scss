@@ -5,15 +5,15 @@
     text-align: center;
     flex-direction: column;
     margin-top: -50px;
-    position: relative;
+
 
     .points {
       background-color: rgb(179, 213, 77, .8);
       animation: points 1s ease-out;
-      position: absolute;
+      z-index: 100000000000000;
+      position: fixed;
       border-radius: 50%;
       font-size: 35px;
-      z-index: 1000;
       margin: auto;
       height: 90px;
       width: 90px;
