@@ -1,6 +1,6 @@
 <app-title-won
   [isActive]="isComplete || !isWinner"
-  [intentos]="intentos"
+  [intentos]="(intentos / 2)"
   [isWinner]="isWinner"
   [time]="currentTime"
   (onNewPlay)="won()"

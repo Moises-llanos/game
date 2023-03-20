@@ -64,7 +64,6 @@ export class PlayComponent implements OnInit, OnDestroy {
   setTime() {
     this.time += 5;
     this.playService.hasPoints = true;
-    setTimeout(()=> this.playService.hasPoints = false, 800);
   }
 
   executeMethod() {
@@ -92,6 +91,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   won() {
     this.playService.totalMovimientos = 0;
     this.playService.listCardsRef = [];
+    this.playService.hasPoints = false;
     this.playService.isWinner = true;
     this.playService.pares = 0;
     this.canLoad = false;
