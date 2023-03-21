@@ -10,12 +10,13 @@
     .points {
       background-color: rgb(179, 213, 77, .8);
       z-index: 100000000000000;
+      transform: perspective(600px);
       position: fixed;
       border-radius: 50%;
       font-size: 35px;
       margin: auto;
-      height: 90px;
-      width: 90px;
+      height: 100px;
+      width: 100px;
       bottom: 0;
       right: 0;
       left: 0;
