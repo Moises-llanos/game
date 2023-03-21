@@ -7,6 +7,21 @@
   margin: 0;
 }
 
+:root {
+  --animate-duration: 1s;
+  --animate-delay: 1s;
+  --animate-repeat: 1
+}
+
+.animate__animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: var(--animate-duration);
+  animation-duration: var(--animate-duration);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both
+}
+
 body {
     background-image: url('assets/img/logo.jpg');
     background-repeat: no-repeat;
@@ -24,7 +39,6 @@ h5,
 h6 {
   text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
   font-family: "Metal Mania", cursive;
-  // color: #02b1c8;
 }
 
 small {
@@ -78,13 +92,6 @@ small {
   }
 }
 
-.rotateInY {
-  -webkit-backface-visibility: visible!important;
-  backface-visibility: visible!important;
-  -webkit-animation-name: flipInY;
-  animation-name: rotateY;
-  
-}
 
 @keyframes reverseY {
   0% {
@@ -144,33 +151,39 @@ small {
   }
 }
 
-.zoomInUp {
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn;
-  
-}
-
-
-.scaleInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: scaleUp;
-  
-}
-
-
 
 .rotateInY {
+  @extend .animate__animated;
   -webkit-backface-visibility: visible!important;
   backface-visibility: visible!important;
   -webkit-animation-name: flipInY;
   animation-name: rotateY;
-  
+}
 
+.zoomInUp {
+  @extend .animate__animated;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  z-index: 100000000;
+}
+
+.scaleInUp {
+  @extend .animate__animated;
+  -webkit-animation-name: fadeInUp;
+  animation-name: scaleUp;
+}
+
+.rotateInY {
+  @extend .animate__animated;
+  -webkit-backface-visibility: visible!important;
+  backface-visibility: visible!important;
+  -webkit-animation-name: flipInY;
+  animation-name: rotateY;
 }
 
 .reverseInY {
+  @extend .animate__animated;
   -webkit-backface-visibility: visible!important;
   backface-visibility: visible!important;
   animation-name: reverseY;
-  
 }
