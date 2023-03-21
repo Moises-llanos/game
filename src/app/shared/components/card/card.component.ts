@@ -20,8 +20,6 @@ export class CardComponent implements OnDestroy {
   }
   
   private baseAudio: string = 'assets/sonido/';
-  private sonido = new Audio('');
-
   private get totalCards() {
     return this.playService.listCardsRef.length;
   }
@@ -29,8 +27,8 @@ export class CardComponent implements OnDestroy {
   constructor(private playService: PlayService) {}
 
   setSrcAudio(src?: string){
-    this.sonido.src = `${this.baseAudio + src}`;
-    this.sonido.play();
+    this.playService.sonido.src = `${this.baseAudio + src}`;
+    this.playService.sonido.play();
   }
 
   changeImg() {
@@ -68,7 +66,8 @@ export class CardComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.sonido.pause();
+      this.playService.sonido.pause();
+
   }
 
 }

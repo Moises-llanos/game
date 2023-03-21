@@ -1,13 +1,7 @@
-<div
-  class="card"
-  [class.reverseInY]="!statusCard"
-  [class.rotateInY]="statusCard"
-  (click)="changeImg()"
->
+<div class="card" [class.reverseInY]="!statusCard" [class.rotateInY]="statusCard" (click)="changeImg()">
   <div class="front" [style.display]="statusCard ? '' : 'none'" >
     <img [src]="dataSrc.image" />
   </div>
-  
   <div class="back" [style.display]="!statusCard ? '' : 'none'">
     <img [src]="urlBack" />
   </div>

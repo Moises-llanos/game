@@ -13,11 +13,16 @@ import { delay } from "rxjs/operators";
 
 export class PlayService {
     public cardsRef: IRamdonCards[] = [];
-    private API: string = environment.BASE_URL;
     public totalMovimientos: number = 0;
+    private audio: HTMLAudioElement = new Audio();
+    private API: string = environment.BASE_URL;
+    private points: boolean = false;
     private totalPares: number = 0;
     private winner: boolean = true;
-    private points: boolean = false;
+
+    get sonido(){
+        return this.audio
+    }
 
     get hasPoints(){
         return this.points
