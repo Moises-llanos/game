@@ -9,7 +9,7 @@
 <app-loading *ngIf="!canLoad"></app-loading>
 <div class="play flexCenter scaleInUp" *ngIf="characters.length">
   <div class="play__center flexCenter">
-    <div class="points flexCenter rotateInX" *ngIf="hasPoints">
+    <div class="points flexCenter rotateInX" *ngIf="hasPoints && !isComplete">
       <h3>+5</h3>
     </div>
     <h1 class="title">Rick And Morty</h1>

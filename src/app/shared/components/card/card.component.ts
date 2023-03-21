@@ -18,6 +18,7 @@ export class CardComponent implements OnDestroy {
     return this.dataSrc.status;
   }
   
+  public backCard: boolean = false;
   private baseAudio: string = 'assets/sonido/';
 
   private get totalCards() {
@@ -33,6 +34,7 @@ export class CardComponent implements OnDestroy {
 
   changeImg() {
     if(!this.playService.totalMovimientos) this.onInterval.emit();
+    if(!this.backCard) this.backCard = true;
     const { status, active } = this.dataSrc;
     if (!status && !active && this.totalCards < 2) {
       this.playService.totalMovimientos += 1
@@ -70,6 +72,7 @@ export class CardComponent implements OnDestroy {
 
   ngOnDestroy(): void {
       this.playService.sonido.pause();
+      this.backCard = false;
   }
 
 }
