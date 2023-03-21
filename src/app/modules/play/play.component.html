@@ -7,24 +7,16 @@
   [pares]="pares"
 ></app-title-won>
 <app-loading *ngIf="!canLoad"></app-loading>
-<div
-  class="play flexCenter scaleInUp"
-  *ngIf="characters.length"
->
+<div class="play flexCenter scaleInUp" *ngIf="characters.length">
   <div class="play__center flexCenter">
-    <div
-      class="points flexCenter zoomInUp"
-      *ngIf="hasPoints"
-    >
+    <div class="points flexCenter zoomInUp" *ngIf="hasPoints">
       <h3>+5</h3>
     </div>
     <h1 class="title">Rick And Morty</h1>
     <div class="play__center-content">
       <div class="banner">
         <div class="timer">
-          <small
-            >Tiempo : <strong>{{ currentTime }} / {{ time }}</strong></small
-          >
+          <small>time : <strong>{{ currentTime }} / {{ time }}</strong></small>
         </div>
         <div class="progress" [style.width]="width + '%'"></div>
       </div>
@@ -34,7 +26,6 @@
           (onInterval)="setTimer()"
           (onpar)="setTime()"
           [dataSrc]="item"
-          #card
         ></app-card>
       </div>
     </div>

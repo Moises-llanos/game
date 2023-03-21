@@ -14,12 +14,12 @@ export class CardComponent implements OnDestroy {
   @Output() onpar: EventEmitter<void> = new EventEmitter();
   public urlBack: string = 'assets/img/fondo__card.jpg';
 
-
   get statusCard(){
     return this.dataSrc.status;
   }
   
   private baseAudio: string = 'assets/sonido/';
+
   private get totalCards() {
     return this.playService.listCardsRef.length;
   }
@@ -59,15 +59,17 @@ export class CardComponent implements OnDestroy {
 
   removeClass() {
     this.setSrcAudio('failed.mp3');
-    setTimeout(() => {
-      this.playService.listCardsRef.forEach(e => e.status = false);
-      this.playService.listCardsRef = [];
-    }, 900);
+    setTimeout(() => this.clearCards(), 900);
+  }
+
+  clearCards(){
+    this.playService.listCardsRef.forEach(e => e.status = false);
+    this.playService.listCardsRef = [];
+    this.playService.sonido.pause();
   }
 
   ngOnDestroy(): void {
       this.playService.sonido.pause();
-
   }
 
 }
