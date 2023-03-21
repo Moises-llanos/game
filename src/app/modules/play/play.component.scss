@@ -11,6 +11,7 @@
       background-color: rgb(179, 213, 77, .8);
       z-index: 100000000000000;
       transform: perspective(600px);
+      transform-style: flat;
       position: fixed;
       border-radius: 50%;
       font-size: 35px;
