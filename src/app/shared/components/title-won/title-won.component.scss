@@ -2,6 +2,8 @@
   animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 100000000000000000000;
+  transform: perspective(600px);
+  transform-style: preserve-3d;
   backdrop-filter: blur(4px);
   user-select: none;
   position: fixed;

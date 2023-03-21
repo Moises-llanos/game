@@ -1,7 +1,7 @@
 <div
   class="card animate__animated"
-  [class.animate__flipInX]="!statusCard"
-  [class.animate__flipInY]="statusCard"
+  [class.reverseInY]="!statusCard"
+  [class.rotateInY]="statusCard"
   (click)="changeImg()"
 >
   <div class="front" [style.display]="statusCard ? '' : 'none'" >
