@@ -51,11 +51,11 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   setProgress(){
-    this.currentTime++;
     this.width = (this.currentTime / this.time) * 100;
   }
-
+  
   finalizeInterval(timer: number) {
+    if(this.currentTime !== this.time) this.currentTime++;
     const hasFinalize = ![this.isComplete, timer === this.time].includes(true);
     if (timer === this.time && !this.isComplete) this.playService.isWinner = false;
     return hasFinalize;
@@ -64,7 +64,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   setTime() {
     this.time += 5;
     this.playService.hasPoints = true;
-  }
+  } 
 
   executeMethod() {
     this.getCharactersImg();

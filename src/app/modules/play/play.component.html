@@ -1,3 +1,6 @@
+<div class="points flexCenter rotateInX" *ngIf="hasPoints && !isComplete">
+  <h3>+5</h3>
+</div>
 <app-title-won
   [isActive]="isComplete || !isWinner"
   [intentos]="intentos / 2"
@@ -9,14 +12,13 @@
 <app-loading *ngIf="!canLoad"></app-loading>
 <div class="play flexCenter scaleInUp" *ngIf="characters.length">
   <div class="play__center flexCenter">
-    <div class="points flexCenter rotateInX" *ngIf="hasPoints && !isComplete">
-      <h3>+5</h3>
-    </div>
     <h1 class="title">Rick And Morty</h1>
     <div class="play__center-content">
       <div class="banner">
         <div class="timer">
-          <small>time : <strong>{{ currentTime }} / {{ time }}</strong></small>
+          <small
+            >time : <strong>{{ currentTime }} / {{ time }}</strong></small
+          >
         </div>
         <div class="progress" [style.width]="width + '%'"></div>
       </div>
