@@ -121,6 +121,26 @@ small {
   }
 }
 
+.animate__rollOut {
+  -webkit-animation-name: rollOut;
+  animation-name: rollOut
+}
+
+
+@keyframes zoomIn {
+  0% {
+      opacity: 0;
+      transform: scale3d(.3,.3,.3)
+  }
+  50% {
+      opacity: 1
+  }
+}
+
+.animate__zoomIn {
+  animation-name: zoomIn
+}
+
 .rotateInY {
   animation-name: rotateY;
 }
