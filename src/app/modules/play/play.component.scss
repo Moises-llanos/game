@@ -1,25 +1,28 @@
+.points {
+  background-color: rgb(179, 213, 77, .8);
+  transform: scale3d(30) translateZ(30);
+  transform-style: preserve-3d;
+  z-index: 10000000000;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 35px;
+  margin: auto;
+  height: 90px;
+  width: 90px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+
 .play {
-  animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
   
   .play__center {
     padding: 10px;
     text-align: center;
     flex-direction: column;
-
-    .points {
-      background-color: rgb(179, 213, 77, .8);
-      z-index: 100000000000000;
-      border-radius: 50%;
-      font-size: 35px;
-      position: absolute;
-      margin: auto;
-      height: 90px;
-      width: 90px;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      top: 0;
-    }
+    margin-top: -50px;
 
     .title {
       font-size: 75px;
@@ -63,9 +66,6 @@
       }
 
       .play__content {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         max-width: 500px;
         flex-wrap: wrap;
         gap: 10px;
@@ -105,6 +105,8 @@
     }
   }
 }
+
+
 @media (max-width: 320px) {
   .play {
     .play__center {
@@ -120,13 +122,4 @@
   }
 }
 
-
-@keyframes wipe-in-down {
-  from {
-    clip-path: inset(0 0 100% 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
 

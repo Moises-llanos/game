@@ -58,6 +58,16 @@ small {
     justify-content: space-between;
 }
 
+.flexAround {
+    @extend .flexCenter;
+    justify-content: space-around;
+}
+
+.flexEvenly {
+    @extend .flexCenter;
+    justify-content: space-evenly;
+}
+
 @keyframes rotateX {
   from {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
