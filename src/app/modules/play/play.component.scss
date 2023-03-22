@@ -1,11 +1,10 @@
 .play {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
   
   .play__center {
     padding: 10px;
     text-align: center;
     flex-direction: column;
-    margin-top: -50px;
-
 
     .points {
       background-color: rgb(179, 213, 77, .8);
@@ -121,4 +120,13 @@
   }
 }
 
+
+@keyframes wipe-in-down {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
 
