@@ -197,8 +197,6 @@ small {
 
 .rotateInY {
   @extend .animate__animated;
-  -webkit-backface-visibility: visible!important;
-  backface-visibility: visible!important;
   -webkit-animation-name: flipInY;
   animation-name: rotateY;
 }
@@ -216,26 +214,13 @@ small {
   animation-name: scaleUp;
 }
 
-.rotateInY {
-  @extend .animate__animated;
-  -webkit-backface-visibility: visible!important;
-  backface-visibility: visible!important;
-  -webkit-animation-name: flipInY;
-  animation-name: rotateY;
-}
-
 .reverseInY {
   @extend .animate__animated;
-  -webkit-backface-visibility: visible!important;
-  backface-visibility: visible!important;
   animation-name: reverseY;
 }
 
-
 .rotateInX {
   @extend .animate__animated;
-  -webkit-backface-visibility: visible !important;
-  backface-visibility: visible !important;
   -webkit-animation-name: rotateX;
   animation-name: rotateX;
 }
