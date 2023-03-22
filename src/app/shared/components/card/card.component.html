@@ -1,4 +1,4 @@
-<div class="card" [class.reverseInY]="!statusCard && backCard" [class.rotateInY]="statusCard" (click)="changeImg()">
+<div class="card animate__animated" [class.reverseInY]="!statusCard && backCard" [class.rotateInY]="statusCard" (click)="changeImg()">
   <div class="front" [style.display]="statusCard ? '' : 'none'" >
     <img [src]="dataSrc.image" />
   </div>

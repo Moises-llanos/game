@@ -7,37 +7,28 @@
   margin: 0;
 }
 
-:root {
-  --animate-duration: 1s;
-  --animate-delay: 1s;
-  --animate-repeat: 1
-}
-
 .animate__animated {
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-duration: var(--animate-duration);
-  animation-duration: var(--animate-duration);
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both
+  animation-fill-mode: both;
 }
 
 body {
-    background-image: url('assets/img/logo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    @extend .flexCenter;
-    min-height: 100vh;
-    overflow: hidden;
+  background-image: url("assets/img/logo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  @extend .flexCenter;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 h1,
-h2, 
-h3, 
+h2,
+h3,
 h4,
 h5,
 h6 {
-  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
+  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67,
+    0 0 0.2em #7ffa67;
   font-family: "Metal Mania", cursive;
 }
 
@@ -46,182 +37,99 @@ small {
   font-size: 17px;
 }
 
-
 .flexCenter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .flexBetween {
-    @extend .flexCenter;
-    justify-content: space-between;
+  @extend .flexCenter;
+  justify-content: space-between;
 }
 
 .flexAround {
-    @extend .flexCenter;
-    justify-content: space-around;
+  @extend .flexCenter;
+  justify-content: space-around;
 }
 
 .flexEvenly {
-    @extend .flexCenter;
-    justify-content: space-evenly;
+  @extend .flexCenter;
+  justify-content: space-evenly;
 }
 
-@keyframes rotateX {
-  from {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    -webkit-animation-timing-function: ease-in;
+@keyframes rotateY {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
     animation-timing-function: ease-in;
     opacity: 0;
   }
 
   40% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    -webkit-animation-timing-function: ease-in;
+    transform: perspective(400px) rotateY(-20deg);
     animation-timing-function: ease-in;
   }
 
   60% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotateY(10deg);
     opacity: 1;
   }
 
   80% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotateY(-5deg);
   }
 
   to {
-    -webkit-transform: perspective(400px);
     transform: perspective(400px);
   }
 }
 
-
-@keyframes rotateY {
-  0% {
-      -webkit-transform: perspective(400px) rotateY(90deg);
-      transform: perspective(400px) rotateY(90deg);
-      -webkit-animation-timing-function: ease-in;
-      animation-timing-function: ease-in;
-      opacity: 0
-  }
-
-  40% {
-      -webkit-transform: perspective(400px) rotateY(-20deg);
-      transform: perspective(400px) rotateY(-20deg);
-      -webkit-animation-timing-function: ease-in;
-      animation-timing-function: ease-in
-  }
-
-  60% {
-      -webkit-transform: perspective(400px) rotateY(10deg);
-      transform: perspective(400px) rotateY(10deg);
-      opacity: 1
-  }
-
-  80% {
-      -webkit-transform: perspective(400px) rotateY(-5deg);
-      transform: perspective(400px) rotateY(-5deg)
-  }
-
-  to {
-      -webkit-transform: perspective(400px);
-      transform: perspective(400px)
-  }
-}
-
-
 @keyframes reverseY {
   0% {
-      -webkit-transform: perspective(400px) rotateY(-90deg);
-      transform: perspective(400px) rotateY(-90deg);
-      -webkit-animation-timing-function: ease-out;
-      animation-timing-function: ease-out;
+    transform: perspective(400px) rotateY(-90deg);
+    animation-timing-function: ease-out;
   }
 
   40% {
-      -webkit-transform: perspective(400px) rotateY(20deg);
-      transform: perspective(400px) rotateY(20deg);
-      -webkit-animation-timing-function: ease-out;
-      animation-timing-function: ease-out
+    transform: perspective(400px) rotateY(20deg);
+    animation-timing-function: ease-out;
   }
 
   60% {
-      -webkit-transform: perspective(400px) rotateY(-10deg);
-      transform: perspective(400px) rotateY(-10deg);
-      opacity: 1
+    transform: perspective(400px) rotateY(-10deg);
+    opacity: 1;
   }
 
   80% {
-      -webkit-transform: perspective(400px) rotateY(5deg);
-      transform: perspective(400px) rotateY(5deg)
+    transform: perspective(400px) rotateY(5deg);
   }
 
   to {
-      -webkit-transform: perspective(400px);
-      transform: perspective(400px)
+    transform: perspective(400px);
   }
 }
 
 @keyframes scaleUp {
   0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0,100%,0);
-      transform: translate3d(0,100%,0)
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
   }
 
   to {
-      opacity: 1;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0)
+    opacity: 1;
+    transform: translateZ(0);
   }
 }
-
-@keyframes zoomIn {
-  0% {
-      opacity: 0;
-      -webkit-transform: perspective(350px) scale3d(.3,.3,.3);
-      transform: perspective(350px) scale3d(.3,.3,.3)
-  }
-
-  50% {
-      opacity: 1
-  }
-}
-
 
 .rotateInY {
-  @extend .animate__animated;
-  -webkit-animation-name: flipInY;
   animation-name: rotateY;
-}
-
-.zoomInUp {
-  @extend .animate__animated;
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn;
-  z-index: 100000000;
 }
 
 .scaleInUp {
   @extend .animate__animated;
-  -webkit-animation-name: fadeInUp;
   animation-name: scaleUp;
 }
 
 .reverseInY {
-  @extend .animate__animated;
   animation-name: reverseY;
 }
-
-.rotateInX {
-  @extend .animate__animated;
-  -webkit-animation-name: rotateX;
-  animation-name: rotateX;
-}
-
