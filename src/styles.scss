@@ -109,15 +109,17 @@ small {
   }
 }
 
-@keyframes fadeIn {
+@keyframes scaleUp {
   0% {
-      opacity: 0
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
   }
+
   to {
-      opacity: 1
+    opacity: 1;
+    transform: translateZ(0);
   }
 }
-
 
 @keyframes zoomIn {
   0% {
@@ -129,12 +131,6 @@ small {
   }
 }
 
-
-.animate__fadeIn {
-  @extend .animate__animated;
-  animation-name: fadeIn
-}
-
 .animate__zoomIn {
   animation-name: zoomIn
 }
@@ -143,6 +139,10 @@ small {
   animation-name: rotateY;
 }
 
+.scaleInUp {
+  @extend .animate__animated;
+  animation-name: scaleUp;
+}
 
 .reverseInY {
   animation-name: reverseY;
