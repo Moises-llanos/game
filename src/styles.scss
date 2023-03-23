@@ -7,30 +7,17 @@
   margin: 0;
 }
 
-.animate__animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
+html {
+  height: 100%;
 }
-
-// body {
-//   background-image: url("assets/img/logo.jpg");
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   @extend .flexCenter;
-//   min-height: 100vh;
-//   overflow: hidden;
-// }
 
 body {
   background-image: url("assets/img/logo.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: left;
   background-size: cover;
   @extend .flexCenter;
+  min-height: 100vh;
   overflow: hidden;
-  height: 100vh;
-  width: 100%;
 }
 
 h1,
@@ -47,6 +34,11 @@ h6 {
 small {
   color: #7ffa67;
   font-size: 17px;
+}
+
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .flexCenter {
@@ -135,16 +127,16 @@ small {
 
 @keyframes zoomIn {
   0% {
-      opacity: 0;
-      transform: scale3d(.3,.3,.3)
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
   }
   50% {
-      opacity: 1
+    opacity: 1;
   }
 }
 
 .animate__zoomIn {
-  animation-name: zoomIn
+  animation-name: zoomIn;
 }
 
 .rotateInY {
