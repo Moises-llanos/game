@@ -58,6 +58,7 @@ export class PlayComponent implements OnInit, OnDestroy {
     if(this.currentTime !== this.time) this.currentTime++;
     const hasFinalize = ![this.isComplete, timer === this.time].includes(true);
     if (timer === this.time && !this.isComplete) this.playService.isWinner = false;
+    if(!hasFinalize) this.playService.hasTime = false;
     return hasFinalize;
   }
 
@@ -93,6 +94,7 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.playService.listCardsRef = [];
     this.playService.hasPoints = false;
     this.playService.isWinner = true;
+    this.playService.hasTime = true;
     this.playService.pares = 0;
     this.canLoad = false;
     this.currentTime = 0;
