@@ -15,12 +15,13 @@
 
 
 .play {
+  height: 100vh;
   
   .play__center {
     padding: 10px;
     text-align: center;
     flex-direction: column;
-    margin-top: -50px;
+    // margin-top: -50px;
 
     .title {
       font-size: 75px;

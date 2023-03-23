@@ -12,12 +12,21 @@
   animation-fill-mode: both;
 }
 
+// body {
+//   background-image: url("assets/img/logo.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   @extend .flexCenter;
+//   min-height: 100vh;
+//   overflow: hidden;
+// }
+
 body {
   background-image: url("assets/img/logo.jpg");
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left;
   background-size: cover;
-  @extend .flexCenter;
-  min-height: 100vh;
   overflow: hidden;
 }
 
