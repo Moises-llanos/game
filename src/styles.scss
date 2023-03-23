@@ -109,21 +109,13 @@ small {
   }
 }
 
-@keyframes scaleUp {
+@keyframes fadeIn {
   0% {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
+      opacity: 0
   }
-
   to {
-    opacity: 1;
-    transform: translateZ(0);
+      opacity: 1
   }
-}
-
-.animate__rollOut {
-  -webkit-animation-name: rollOut;
-  animation-name: rollOut
 }
 
 
@@ -137,6 +129,12 @@ small {
   }
 }
 
+
+.animate__fadeIn {
+  @extend .animate__animated;
+  animation-name: fadeIn
+}
+
 .animate__zoomIn {
   animation-name: zoomIn
 }
@@ -145,10 +143,6 @@ small {
   animation-name: rotateY;
 }
 
-.scaleInUp {
-  @extend .animate__animated;
-  animation-name: scaleUp;
-}
 
 .reverseInY {
   animation-name: reverseY;

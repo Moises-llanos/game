@@ -32,7 +32,6 @@ export class CardComponent implements OnDestroy {
   }
 
   private time: number = 700;
-  private baseAudio: string = 'assets/sonido/';
   private get totalCards() {
     return this.playService.listCardsRef.length;
   }
@@ -40,8 +39,9 @@ export class CardComponent implements OnDestroy {
   constructor(private playService: PlayService) {}
 
   setSrc(src?: string) {
-    this.playService.sonido.src = `${this.baseAudio + src}`;
     this.playService.sonido.currentTime = 0;
+    const url = 'assets/sonido/' + src;
+    this.playService.sonido.src = url;
     this.playService.sonido.play();
   }
 
@@ -86,6 +86,5 @@ export class CardComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.playService.sonido.pause();
-    this.playService.sonido.currentTime = 0;
   }
 }
