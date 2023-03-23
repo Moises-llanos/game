@@ -16,8 +16,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   @extend .flexCenter;
-  min-height: 100vh;
   overflow: hidden;
+  height: 100%;
 }
 
 h1,
