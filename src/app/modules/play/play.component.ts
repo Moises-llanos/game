@@ -90,6 +90,11 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   won() {
+    this.resetData();
+    this.getCharactersImg();
+  }
+
+  resetData(){
     this.playService.totalMovimientos = 0;
     this.playService.listCardsRef = [];
     this.playService.hasPoints = false;
@@ -101,7 +106,6 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.characters = [];
     this.width = 0;
     this.time = 30;
-    this.getCharactersImg();
   }
 
   ngOnDestroy(): void {
