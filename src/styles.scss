@@ -27,7 +27,10 @@ body {
   background-attachment: fixed;
   background-position: left;
   background-size: cover;
+  @extend .flexCenter;
   overflow: hidden;
+  height: 100vh;
+  width: 100%;
 }
 
 h1,
