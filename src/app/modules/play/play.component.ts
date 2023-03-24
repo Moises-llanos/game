@@ -92,8 +92,12 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
    shuffleList(shuffledList: IRamdonCards[]) {
+    shuffledList = shuffledList.sort(()=> Math.random() - 0.5);
+
       for (let i = 0; i < shuffledList.length - 1; i++) {
-        if (shuffledList[i].id === shuffledList[i + 1].id) {
+        console.log(i);
+        const second = shuffledList[i].id === shuffledList[i <= 14 ? i + 4 : i + 1].id
+        if (shuffledList[i].id === shuffledList[i + 1].id || second) {
           const randomIndex = Math.floor(Math.random() * shuffledList.length);
           const temp = shuffledList[i];
           shuffledList[i] = shuffledList[randomIndex];
