@@ -84,9 +84,13 @@ export class PlayComponent implements OnInit, OnDestroy {
       .sort(() => Math.random() - 0.5)
       .splice(0, 10);
 
-    const dataCopy = [...JSON.parse(JSON.stringify(data))];
-    this.characters = [...data, ...dataCopy].sort(() => Math.random() - 0.5);
+    const dataCopy = this.sortData([...JSON.parse(JSON.stringify(data))]);
+    this.characters = this.sortData([...data, ...dataCopy]);
     setTimeout(() => {this.canLoad = true}, 1200);
+  }
+
+  sortData<T>(data: T[]){
+    return data.sort(()=> Math.random() - 0.5)
   }
 
   won() {
