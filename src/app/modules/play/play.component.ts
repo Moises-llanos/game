@@ -18,24 +18,24 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   private obsDestroy: Subject<void> = new Subject();
 
-  get isWinner(){
-    return this.playService.isWinner
+  get isWinner() {
+    return this.playService.isWinner;
   }
 
   get isComplete() {
     return this.playService.pares === 10;
   }
 
-  get pares(){
-    return this.playService.pares
+  get pares() {
+    return this.playService.pares;
   }
 
   get intentos() {
     return this.playService.totalMovimientos;
   }
 
-  get hasPoints(){
-    return this.playService.hasPoints
+  get hasPoints() {
+    return this.playService.hasPoints;
   }
 
   constructor(private playService: PlayService) {}
@@ -50,22 +50,23 @@ export class PlayComponent implements OnInit, OnDestroy {
       .subscribe(this.setProgress.bind(this));
   }
 
-  setProgress(){
+  setProgress() {
     this.width = (this.currentTime / this.time) * 100;
   }
-  
+
   finalizeInterval(timer: number) {
-    if(this.currentTime !== this.time) this.currentTime++;
+    if (this.currentTime !== this.time) this.currentTime++;
     const hasFinalize = ![this.isComplete, timer === this.time].includes(true);
-    if (timer === this.time && !this.isComplete) this.playService.isWinner = false;
-    if(!hasFinalize) this.playService.hasTime = false;
+    if (timer === this.time && !this.isComplete)
+      this.playService.isWinner = false;
+    if (!hasFinalize) this.playService.hasTime = false;
     return hasFinalize;
   }
 
   setTime() {
     this.time += 5;
     this.playService.hasPoints = true;
-  } 
+  }
 
   executeMethod() {
     this.getCharactersImg();
@@ -79,18 +80,13 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   setDataCharacters(result: Result[]) {
-    const data = result
-      .map(({ id, image }) => ({ id, image, status: false }))
-      .sort(() => Math.random() - 0.5)
-      .splice(0, 10);
-
-    const dataCopy = this.sortData([...JSON.parse(JSON.stringify(data))]);
-    this.characters = this.sortData([...data, ...dataCopy]);
-    setTimeout(() => {this.canLoad = true}, 1200);
+    const data = result.map(({ id, image }) => ({ id, image, status: false })).splice(0, 10);
+    this.characters = this.sortData([...JSON.parse(JSON.stringify(data)), ...data]);
+    setTimeout(() => this.canLoad = true, 1000);
   }
 
-  sortData<T>(data: T[]){
-    return data.sort(()=> Math.random() - 0.5)
+  sortData(data: IRamdonCards[]) {
+    return data.sort(() => Math.random() - 0.5);
   }
 
   won() {
@@ -98,7 +94,7 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.getCharactersImg();
   }
 
-  resetData(){
+  resetData() {
     this.playService.totalMovimientos = 0;
     this.playService.listCardsRef = [];
     this.playService.hasPoints = false;
