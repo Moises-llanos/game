@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-show',
@@ -7,7 +7,4 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowComponent  {
   public wons = new Array(199);
-  trackByeIndex(index: number){
-    return index
-  }
 }

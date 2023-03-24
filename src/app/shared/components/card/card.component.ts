@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  OnDestroy,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
 import { PlayService } from '../../../modules/play/service/play.service';
 import { IRamdonCards } from '../../../modules/play/models/play.models';
 
@@ -39,10 +33,19 @@ export class CardComponent implements OnDestroy {
   constructor(private playService: PlayService) {}
 
   setSrc(src?: string) {
-    this.playService.sonido.currentTime = 0;
+    this.playService.sonido.preload = 'none';
     const url = 'assets/sonido/' + src;
     this.playService.sonido.src = url;
-    this.playService.sonido.play();
+    
+    const promise = new Promise((resolve) => {
+      this.playService.sonido.onloadeddata = () => resolve(true);
+    });
+    
+    this.playService.sonido.load();
+
+    promise
+      .then(() => this.playService.sonido.play())
+      .catch(() => console.log('Algo salio mal'));
   }
 
   changeImg() {
@@ -85,6 +88,7 @@ export class CardComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.playService.sonido.currentTime = 0;
     this.playService.sonido.pause();
   }
 }
