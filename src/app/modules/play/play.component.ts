@@ -82,7 +82,7 @@ export class PlayComponent implements OnInit, OnDestroy {
     const data = result.map(({ id, image }) => ({ id, image, status: false }))
     const cutData = data.splice(0, 10)
     const dataCopy = [...JSON.parse(JSON.stringify(cutData))];
-    this.characters = this.shuffleList([...cutData, ...dataCopy]); 
+    this.characters = this.sortData([...this.sortData(cutData).concat(this.sortData(dataCopy))])
     setTimeout(() => this.canLoad = true, 1000);
   }
 
@@ -91,25 +91,9 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.getCharactersImg();
   }
 
-   shuffleList(shuffledList: IRamdonCards[]) {
-    shuffledList = shuffledList.sort(()=> Math.random() - 0.5);
-
-      for (let i = 0; i < shuffledList.length - 1; i++) {
-        console.log(i);
-        const second = shuffledList[i].id === shuffledList[i <= 14 ? i + 4 : i + 1].id
-        if (shuffledList[i].id === shuffledList[i + 1].id || second) {
-          const randomIndex = Math.floor(Math.random() * shuffledList.length);
-          const temp = shuffledList[i];
-          shuffledList[i] = shuffledList[randomIndex];
-          shuffledList[randomIndex] = temp;
-          i = -1;
-        }
-      }
-  
-    return shuffledList;
+  sortData(data: IRamdonCards[]){
+    return data.sort(()=> Math.random() - 0.5)
   }
-
-  
 
   resetData(){
     this.playService.totalMovimientos = 0;
