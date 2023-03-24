@@ -81,7 +81,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   setDataCharacters(result: Result[]) {
     const data = result.map(({ id, image }) => ({ id, image, status: false }));
     const sortData = this.shuffle(data.splice(0, 10));
-    const dataCopy = [...JSON.parse(JSON.stringify(data))];
+    const dataCopy = [...JSON.parse(JSON.stringify(sortData))];
     this.characters = this.shuffle([...sortData, ...dataCopy]); 
     setTimeout(() => {this.canLoad = true}, 1000);
   }
