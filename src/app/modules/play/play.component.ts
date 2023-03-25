@@ -79,10 +79,9 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   setDataCharacters(result: Result[]) {
-    const data = result.map(({ id, image }) => ({ id, image, status: false }))
-    const cutData = data.splice(0, 10)
-    const dataCopy = [...JSON.parse(JSON.stringify(cutData))];
-    this.characters = this.shuffleList([...this.sortData(cutData).concat(this.sortData(dataCopy))])
+    const data = result.map(({ id, image }) => ({ id, image, status: false })).splice(0, 10);
+    const dataCopy = data.map((card)=> ({...card}))
+    this.characters = this.shuffleList([...data, ...dataCopy]);
     setTimeout(() => this.canLoad = true, 1000);
   }
 
@@ -96,12 +95,12 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   shuffleList(list: IRamdonCards[]){
-    list = list.sort(()=> Math.random() - 0.5);
+    list = this.sortData(list);
 
     for(let i = 0; i < list.length - 1; i++){
       if(list[i].id === list[i + 1].id){
         let idRamdon;
-        while(idRamdon === i || !idRamdon || (idRamdon === i + 1)){
+        while(idRamdon === i || !idRamdon || idRamdon === (i + 1)){
           idRamdon = Math.floor(Math.random() * list.length);
         }
         [list[i], list[idRamdon]] = [list[idRamdon], list[i]];
